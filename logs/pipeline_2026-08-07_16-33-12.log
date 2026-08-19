@@ -1,0 +1,1074 @@
+[16:33:12] ============================================================
+[16:33:12] DAILY PIPELINE STARTED
+[16:33:12] ============================================================
+[16:33:12] Archived previous cache to C:\Users\91769\stock_ai_project\data\archive\universe_fundamentals_2026-08-07.csv and cleared for fresh fetch
+[16:33:12] START: Refresh full NSE universe fundamentals
+
+Starting batch fetch for full NSE universe (2395 stocks) ...
+Using 8 concurrent workers. This will take a while.
+
+Total symbols: 2395 | Already done: 0 | Remaining: 2395
+  Progress: 25/2395
+  Progress: 50/2395
+  Progress: 75/2395
+  Progress: 100/2395
+  Progress: 125/2395
+  Progress: 150/2395
+  Progress: 175/2395
+  Progress: 200/2395
+  Progress: 225/2395
+  Progress: 250/2395
+  Progress: 275/2395
+  Progress: 300/2395
+  Progress: 325/2395
+  Progress: 350/2395
+  Progress: 375/2395
+  Progress: 400/2395
+  Progress: 425/2395
+  Progress: 450/2395
+  Progress: 475/2395
+  Progress: 500/2395
+  Progress: 525/2395
+  Progress: 550/2395
+  Progress: 575/2395
+  Progress: 600/2395
+  Progress: 625/2395
+  Progress: 650/2395
+  Progress: 675/2395
+  Progress: 700/2395
+  Progress: 725/2395
+  Progress: 750/2395
+  Progress: 775/2395
+  Progress: 800/2395
+  Progress: 825/2395
+  Progress: 850/2395
+  Progress: 875/2395
+  Progress: 900/2395
+  Progress: 925/2395
+  Progress: 950/2395
+  Progress: 975/2395
+  Progress: 1000/2395
+  Progress: 1025/2395
+  Progress: 1050/2395
+  Progress: 1075/2395
+  Progress: 1100/2395
+  Progress: 1125/2395
+  Progress: 1150/2395
+  Progress: 1175/2395
+  Progress: 1200/2395
+  Progress: 1225/2395
+  Progress: 1250/2395
+  Progress: 1275/2395
+  Progress: 1300/2395
+  Progress: 1325/2395
+  Progress: 1350/2395
+  Progress: 1375/2395
+  Progress: 1400/2395
+  Progress: 1425/2395
+  Progress: 1450/2395
+  Progress: 1475/2395
+  Progress: 1500/2395
+  Progress: 1525/2395
+  Progress: 1550/2395
+  Progress: 1575/2395
+  Progress: 1600/2395
+  Progress: 1625/2395
+  Progress: 1650/2395
+  Progress: 1675/2395
+  Progress: 1700/2395
+  Progress: 1725/2395
+  Progress: 1750/2395
+  Progress: 1775/2395
+  Progress: 1800/2395
+  Progress: 1825/2395
+  Progress: 1850/2395
+  Progress: 1875/2395
+  Progress: 1900/2395
+  Progress: 1925/2395
+  Progress: 1950/2395
+  Progress: 1975/2395
+  Progress: 2000/2395
+  Progress: 2025/2395
+  Progress: 2050/2395
+  Progress: 2075/2395
+  Progress: 2100/2395
+  Progress: 2125/2395
+  Progress: 2150/2395
+  Progress: 2175/2395
+  Progress: 2200/2395
+  Progress: 2225/2395
+  Progress: 2250/2395
+  Progress: 2275/2395
+  Progress: 2300/2395
+  Progress: 2325/2395
+  Progress: 2350/2395
+  Progress: 2375/2395
+
+=== BATCH FETCH COMPLETE ===
+Time elapsed: 3.0 minutes
+Successful: 926
+Failed: 1469
+Total in checkpoint file: 2395
+
+Saved to data/processed/universe_fundamentals.csv
+
+Re-run this script anytime to resume/refresh -- it skips symbols
+already fetched and only retries failures or fetches new ones.
+HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+[16:36:13] SUCCESS: Refresh full NSE universe fundamentals
+[16:36:13] START: Recompute long-term fundamental scores
+Scoring 926 stocks against sector medians ...
+
+=== LONG-TERM FUNDAMENTAL SCORES (sorted best to worst) ===
+       symbol                 sector cap_category  total_score  score_percentile                               recommendation
+    GARUDA.NS            Industrials    Small Cap         99.7         99.946004                       Strong Buy (Long-Term)
+ HBLENGINE.NS            Industrials    Small Cap         99.7         99.946004                       Strong Buy (Long-Term)
+       BLS.NS            Industrials    Small Cap         98.5         99.784017                       Strong Buy (Long-Term)
+CASTROLIND.NS                 Energy    Small Cap         98.3         99.676026                       Strong Buy (Long-Term)
+     DEVIT.NS             Technology    Small Cap         97.2         99.568035                       Strong Buy (Long-Term)
+    BORANA.NS      Consumer Cyclical    Small Cap         95.8         99.460043                       Strong Buy (Long-Term)
+   CEINSYS.NS            Industrials    Small Cap         94.7         99.352052                       Strong Buy (Long-Term)
+HEROMOTOCO.NS      Consumer Cyclical    Large Cap         94.1         99.244060                       Strong Buy (Long-Term)
+GAUDIUMIVF.NS             Healthcare    Small Cap         93.9         99.136069                       Strong Buy (Long-Term)
+  GKENERGY.NS              Utilities    Small Cap         93.6         99.028078                       Strong Buy (Long-Term)
+      GPPL.NS            Industrials    Small Cap         93.0         98.920086                       Strong Buy (Long-Term)
+  EVEREADY.NS            Industrials    Small Cap         92.7         98.812095                       Strong Buy (Long-Term)
+      BBTC.NS     Consumer Defensive    Small Cap         90.4         98.704104                       Strong Buy (Long-Term)
+   GOLDIAM.NS      Consumer Cyclical    Small Cap         88.4         98.596112                       Strong Buy (Long-Term)
+EUROPRATIK.NS        Basic Materials    Small Cap         87.8         98.488121                       Strong Buy (Long-Term)
+    AIAENG.NS            Industrials      Mid Cap         87.6         98.380130                       Strong Buy (Long-Term)
+DRCSYSTEMS.NS             Technology    Small Cap         87.5         98.272138                       Strong Buy (Long-Term)
+    ALIVUS.NS             Healthcare    Small Cap         87.3         98.164147                       Strong Buy (Long-Term)
+ ANTELOPUS.NS                 Energy    Small Cap         87.2         98.056156                       Strong Buy (Long-Term)
+   CALSOFT.NS             Technology    Small Cap         87.1         97.948164                       Strong Buy (Long-Term)
+CAPLIPOINT.NS             Healthcare    Small Cap         87.0         97.840173                       Strong Buy (Long-Term)
+    GESHIP.NS            Industrials    Small Cap         86.9         97.732181                       Strong Buy (Long-Term)
+AJANTPHARM.NS             Healthcare      Mid Cap         86.7         97.624190                       Strong Buy (Long-Term)
+    EMMVEE.NS             Technology    Small Cap         86.5         97.462203                       Strong Buy (Long-Term)
+  DEEPINDS.NS                 Energy    Small Cap         86.5         97.462203                       Strong Buy (Long-Term)
+HINDCOPPER.NS        Basic Materials      Mid Cap         86.4         97.192225                       Strong Buy (Long-Term)
+   CARRARO.NS      Consumer Cyclical    Small Cap         86.4         97.192225                       Strong Buy (Long-Term)
+   FRONTSP.NS                    NaN    Small Cap         86.4         97.192225                       Strong Buy (Long-Term)
+    CRISIL.NS     Financial Services      Mid Cap         86.3         96.976242                       Strong Buy (Long-Term)
+     CMPDI.NS        Basic Materials    Small Cap         86.2         96.868251                       Strong Buy (Long-Term)
+  BUILDPRO.NS      Consumer Cyclical    Small Cap         86.1         96.760259                       Strong Buy (Long-Term)
+      GHCL.NS        Basic Materials    Small Cap         85.8         96.652268                       Strong Buy (Long-Term)
+ABBOTINDIA.NS             Healthcare      Mid Cap         85.7         96.544276                       Strong Buy (Long-Term)
+     AGIIL.NS            Real Estate    Small Cap         85.5         96.436285                       Strong Buy (Long-Term)
+ EXPLEOSOL.NS             Technology    Small Cap         85.1         96.328294                       Strong Buy (Long-Term)
+GENUSPOWER.NS            Industrials    Small Cap         85.0         96.220302                       Strong Buy (Long-Term)
+  GOCLCORP.NS        Basic Materials    Small Cap         84.9         96.112311                       Strong Buy (Long-Term)
+   FIEMIND.NS      Consumer Cyclical    Small Cap         84.5         96.004320                       Strong Buy (Long-Term)
+ASHAPURMIN.NS        Basic Materials    Small Cap         84.3         95.896328                       Strong Buy (Long-Term)
+   ALMONDZ.NS     Financial Services    Small Cap         84.2         95.788337                       Strong Buy (Long-Term)
+      GPIL.NS        Basic Materials    Small Cap         84.1         95.680346                       Strong Buy (Long-Term)
+ADVENZYMES.NS        Basic Materials    Small Cap         84.0         95.572354                       Strong Buy (Long-Term)
+  AVONMORE.NS     Financial Services    Small Cap         83.8         95.464363                       Strong Buy (Long-Term)
+      GNFC.NS        Basic Materials    Small Cap         83.7         95.356371                       Strong Buy (Long-Term)
+  HINDZINC.NS        Basic Materials    Large Cap         83.6         95.248380                       Strong Buy (Long-Term)
+    DBCORP.NS Communication Services    Small Cap         83.4         95.140389                       Strong Buy (Long-Term)
+    GLOBAL.NS     Consumer Defensive    Small Cap         83.3         95.032397                       Strong Buy (Long-Term)
+      ATUL.NS        Basic Materials    Small Cap         83.2         94.924406                       Strong Buy (Long-Term)
+      BANG.NS      Consumer Cyclical    Small Cap         83.1         94.816415                       Strong Buy (Long-Term)
+CONCORDBIO.NS             Healthcare    Small Cap         83.0         94.708423                       Strong Buy (Long-Term)
+   CHEVIOT.NS      Consumer Cyclical    Small Cap         82.9         94.546436                       Strong Buy (Long-Term)
+    BROOKS.NS             Healthcare    Small Cap         82.9         94.546436                       Strong Buy (Long-Term)
+      HMVL.NS Communication Services    Small Cap         82.8         94.330454                       Strong Buy (Long-Term)
+      AHCL.NS             Healthcare    Small Cap         82.8         94.330454                       Strong Buy (Long-Term)
+     BSOFT.NS             Technology    Small Cap         82.5         94.168467                       Strong Buy (Long-Term)
+     CRAMC.NS     Financial Services    Small Cap         82.3         94.060475                       Strong Buy (Long-Term)
+ HESTERBIO.NS             Healthcare    Small Cap         82.2         93.952484                       Strong Buy (Long-Term)
+  GLENMARK.NS             Healthcare      Mid Cap         82.0         93.844492                       Strong Buy (Long-Term)
+    EMCURE.NS             Healthcare      Mid Cap         81.7         93.682505                       Strong Buy (Long-Term)
+       ACE.NS            Industrials    Small Cap         81.7         93.682505                       Strong Buy (Long-Term)
+    GMBREW.NS     Consumer Defensive    Small Cap         81.6         93.520518                       Strong Buy (Long-Term)
+BLBLIMITED.NS     Financial Services    Small Cap         81.5         93.358531                       Strong Buy (Long-Term)
+CARERATING.NS     Financial Services    Small Cap         81.5         93.358531                       Strong Buy (Long-Term)
+DATAMATICS.NS             Technology    Small Cap         81.4         93.196544                       Strong Buy (Long-Term)
+  CENTENKA.NS      Consumer Cyclical    Small Cap         81.3         93.034557                       Strong Buy (Long-Term)
+ AUTOAXLES.NS      Consumer Cyclical    Small Cap         81.3         93.034557                       Strong Buy (Long-Term)
+ BHARATRAS.NS        Basic Materials    Small Cap         81.0         92.818575                       Strong Buy (Long-Term)
+APCOTEXIND.NS        Basic Materials    Small Cap         81.0         92.818575                       Strong Buy (Long-Term)
+AUROPHARMA.NS             Healthcare      Mid Cap         80.7         92.656587                       Strong Buy (Long-Term)
+ARIHANTCAP.NS     Financial Services    Small Cap         80.5         92.548596                       Strong Buy (Long-Term)
+  GRANULES.NS             Healthcare    Small Cap         80.4         92.332613                       Strong Buy (Long-Term)
+  BLISSGVS.NS             Healthcare    Small Cap         80.4         92.332613                       Strong Buy (Long-Term)
+      ADOR.NS            Industrials    Small Cap         80.4         92.332613                       Strong Buy (Long-Term)
+     CLSEL.NS     Consumer Defensive    Small Cap         80.2         92.116631                       Strong Buy (Long-Term)
+   DOLPHIN.NS                 Energy    Small Cap         80.1         91.846652                       Strong Buy (Long-Term)
+     GLAND.NS             Healthcare      Mid Cap         80.1         91.846652                       Strong Buy (Long-Term)
+      DYCL.NS            Industrials    Small Cap         80.1         91.846652                       Strong Buy (Long-Term)
+ EICHERMOT.NS      Consumer Cyclical    Large Cap         80.1         91.846652                       Strong Buy (Long-Term)
+  CHEMBOND.NS        Basic Materials    Small Cap         80.0         91.522678                       Strong Buy (Long-Term)
+BAJAJ-AUTO.NS      Consumer Cyclical    Large Cap         80.0         91.522678                       Strong Buy (Long-Term)
+  BAJAJCON.NS     Consumer Defensive    Small Cap         79.9         91.306695                       Strong Buy (Long-Term)
+GHCLTEXTIL.NS      Consumer Cyclical    Small Cap         79.9         91.306695                       Strong Buy (Long-Term)
+ BUTTERFLY.NS      Consumer Cyclical    Small Cap         79.8         91.144708                       Strong Buy (Long-Term)
+ GULFPETRO.NS                 Energy    Small Cap         79.7         90.982721                       Strong Buy (Long-Term)
+   FINPIPE.NS            Industrials    Small Cap         79.7         90.982721                       Strong Buy (Long-Term)
+      GAEL.NS     Consumer Defensive    Small Cap         79.6         90.766739                       Strong Buy (Long-Term)
+     GVPIL.NS            Industrials    Small Cap         79.6         90.766739                       Strong Buy (Long-Term)
+   DIFFNKG.NS            Industrials    Small Cap         79.5         90.604752                       Strong Buy (Long-Term)
+  GANESHCP.NS     Consumer Defensive    Small Cap         79.4         90.496760                       Strong Buy (Long-Term)
+ADANIPOWER.NS              Utilities    Large Cap         79.3         90.388769                       Strong Buy (Long-Term)
+      GRSE.NS            Industrials      Mid Cap         79.1         90.226782                       Strong Buy (Long-Term)
+  BHAGERIA.NS        Basic Materials    Small Cap         79.1         90.226782                       Strong Buy (Long-Term)
+ ELGIEQUIP.NS            Industrials    Small Cap         79.0         90.010799                       Strong Buy (Long-Term)
+       CSM.NS             Technology    Small Cap         79.0         90.010799                       Strong Buy (Long-Term)
+DCMSHRIRAM.NS            Industrials    Small Cap         78.9         89.686825                       Strong Buy (Long-Term)
+   CHEMCON.NS        Basic Materials    Small Cap         78.9         89.686825                       Strong Buy (Long-Term)
+ GPTHEALTH.NS             Healthcare    Small Cap         78.9         89.686825                       Strong Buy (Long-Term)
+   ADVANCE.NS        Basic Materials    Small Cap         78.9         89.686825                       Strong Buy (Long-Term)
+ BALAMINES.NS        Basic Materials    Small Cap         78.6         89.416847                       Strong Buy (Long-Term)
+   3MINDIA.NS            Industrials      Mid Cap         78.5         89.308855                       Strong Buy (Long-Term)
+    DICIND.NS        Basic Materials    Small Cap         78.4         89.200864                       Strong Buy (Long-Term)
+   ACCELYA.NS             Technology    Small Cap         78.3         89.092873                       Strong Buy (Long-Term)
+     GLAXO.NS             Healthcare      Mid Cap         78.2         88.822894                       Strong Buy (Long-Term)
+   CARYSIL.NS      Consumer Cyclical    Small Cap         78.2         88.822894                       Strong Buy (Long-Term)
+GULFOILLUB.NS        Basic Materials    Small Cap         78.2         88.822894                       Strong Buy (Long-Term)
+   GANDHAR.NS                 Energy    Small Cap         78.2         88.822894                       Strong Buy (Long-Term)
+     GIPCL.NS              Utilities    Small Cap         78.1         88.498920                       Strong Buy (Long-Term)
+      GAIL.NS              Utilities    Large Cap         78.1         88.498920                       Strong Buy (Long-Term)
+       DCI.NS             Technology    Small Cap         78.0         88.282937                       Strong Buy (Long-Term)
+      ERIS.NS             Healthcare    Small Cap         78.0         88.282937                       Strong Buy (Long-Term)
+ BRIGHOTEL.NS      Consumer Cyclical    Small Cap         77.9         88.120950                       Strong Buy (Long-Term)
+   EMUDHRA.NS             Technology    Small Cap         77.8         88.012959                       Strong Buy (Long-Term)
+   HCLTECH.NS             Technology    Large Cap         77.6         87.796976                       Strong Buy (Long-Term)
+    AVTNPL.NS        Basic Materials    Small Cap         77.6         87.796976                       Strong Buy (Long-Term)
+    ASHOKA.NS            Industrials    Small Cap         77.6         87.796976                       Strong Buy (Long-Term)
+   DCBBANK.NS     Financial Services    Small Cap         77.5         87.257019                       Strong Buy (Long-Term)
+       CUB.NS     Financial Services    Small Cap         77.5         87.257019                       Strong Buy (Long-Term)
+       GTL.NS Communication Services    Small Cap         77.5         87.257019                       Strong Buy (Long-Term)
+   CSBBANK.NS     Financial Services    Small Cap         77.5         87.257019                       Strong Buy (Long-Term)
+     CANBK.NS     Financial Services    Large Cap         77.5         87.257019                       Strong Buy (Long-Term)
+FEDERALBNK.NS     Financial Services      Mid Cap         77.5         87.257019                       Strong Buy (Long-Term)
+       EKC.NS            Industrials    Small Cap         77.5         87.257019                       Strong Buy (Long-Term)
+     ARE&M.NS            Industrials    Small Cap         77.4         86.771058                       Strong Buy (Long-Term)
+    APLLTD.NS             Healthcare    Small Cap         77.4         86.771058                       Strong Buy (Long-Term)
+       CPL.NS            Industrials    Small Cap         77.3         86.609071                       Strong Buy (Long-Term)
+  ANANTRAJ.NS            Real Estate    Small Cap         77.2         86.339093                       Strong Buy (Long-Term)
+      BASF.NS        Basic Materials    Small Cap         77.2         86.339093                       Strong Buy (Long-Term)
+    ECLERX.NS             Technology    Small Cap         77.2         86.339093                       Strong Buy (Long-Term)
+       AWL.NS     Consumer Defensive      Mid Cap         77.2         86.339093                       Strong Buy (Long-Term)
+ BRITANNIA.NS     Consumer Defensive    Large Cap         77.1         86.015119                       Strong Buy (Long-Term)
+CHEMBONDCH.NS        Basic Materials    Small Cap         77.1         86.015119                       Strong Buy (Long-Term)
+ ALGOQUANT.NS     Financial Services    Small Cap         77.0         85.799136                       Strong Buy (Long-Term)
+ AEROENTER.NS        Basic Materials    Small Cap         77.0         85.799136                       Strong Buy (Long-Term)
+ DOLATALGO.NS     Financial Services    Small Cap         76.8         85.637149                       Strong Buy (Long-Term)
+EIHAHOTELS.NS      Consumer Cyclical    Small Cap         76.7         85.529158                       Strong Buy (Long-Term)
+   HEXAGON.NS     Consumer Defensive    Small Cap         76.6         85.367171                       Strong Buy (Long-Term)
+     ELLEN.NS        Basic Materials    Small Cap         76.6         85.367171                       Strong Buy (Long-Term)
+       HAL.NS            Industrials    Large Cap         76.5         85.205184                       Strong Buy (Long-Term)
+ BORORENEW.NS             Technology    Small Cap         76.4         84.935205                       Strong Buy (Long-Term)
+    AJMERA.NS            Real Estate    Small Cap         76.4         84.935205                       Strong Buy (Long-Term)
+   GULPOLY.NS        Basic Materials    Small Cap         76.4         84.935205                       Strong Buy (Long-Term)
+ BANKINDIA.NS     Financial Services      Mid Cap         76.4         84.935205                       Strong Buy (Long-Term)
+ CYBERTECH.NS             Technology    Small Cap         76.3         84.611231                       Strong Buy (Long-Term)
+   FINEORG.NS        Basic Materials    Small Cap         76.3         84.611231                       Strong Buy (Long-Term)
+      GKSL.NS             Healthcare    Small Cap         76.1         84.395248                       Strong Buy (Long-Term)
+HARRMALAYA.NS     Consumer Defensive    Small Cap         76.1         84.395248                       Strong Buy (Long-Term)
+  ARVSMART.NS            Real Estate    Small Cap         76.0         84.233261                       Strong Buy (Long-Term)
+ BEARDSELL.NS            Industrials    Small Cap         75.7         84.017279                       Strong Buy (Long-Term)
+ ASAHISONG.NS        Basic Materials    Small Cap         75.7         84.017279                       Strong Buy (Long-Term)
+   CEIGALL.NS            Industrials    Small Cap         75.7         84.017279                       Strong Buy (Long-Term)
+   COFORGE.NS             Technology      Mid Cap         75.6         83.747300                       Strong Buy (Long-Term)
+BFUTILITIE.NS            Industrials    Small Cap         75.6         83.747300                       Strong Buy (Long-Term)
+ GARFIBRES.NS      Consumer Cyclical    Small Cap         75.5         83.531317                       Strong Buy (Long-Term)
+     AARVI.NS            Industrials    Small Cap         75.5         83.531317                       Strong Buy (Long-Term)
+ HUHTAMAKI.NS      Consumer Cyclical    Small Cap         75.4         83.261339                       Strong Buy (Long-Term)
+HAPPYFORGE.NS            Industrials    Small Cap         75.4         83.261339                       Strong Buy (Long-Term)
+DPABHUSHAN.NS      Consumer Cyclical    Small Cap         75.4         83.261339                       Strong Buy (Long-Term)
+   ALLDIGI.NS            Industrials    Small Cap         75.1         83.045356                       Strong Buy (Long-Term)
+HINDCOMPOS.NS      Consumer Cyclical    Small Cap         74.9         82.937365                       Strong Buy (Long-Term)
+HAWKINCOOK.NS      Consumer Cyclical    Small Cap         74.8         82.775378                       Strong Buy (Long-Term)
+    ADVAIT.NS            Industrials    Small Cap         74.8         82.775378                       Strong Buy (Long-Term)
+ BAYERCROP.NS        Basic Materials    Small Cap         74.7         82.613391                       Strong Buy (Long-Term)
+GANDHITUBE.NS            Industrials    Small Cap         74.6         82.451404                       Strong Buy (Long-Term)
+ FINCABLES.NS            Industrials    Small Cap         74.6         82.451404                       Strong Buy (Long-Term)
+HONDAPOWER.NS            Industrials    Small Cap         74.5         82.235421                       Strong Buy (Long-Term)
+ GLOBUSSPR.NS     Consumer Defensive    Small Cap         74.5         82.235421                       Strong Buy (Long-Term)
+      BEPL.NS        Basic Materials    Small Cap         74.4         82.073434                       Strong Buy (Long-Term)
+      ASMS.NS             Technology    Small Cap         74.3         81.803456                       Strong Buy (Long-Term)
+ BALUFORGE.NS            Industrials    Small Cap         74.3         81.803456                       Strong Buy (Long-Term)
+ AARTISURF.NS        Basic Materials    Small Cap         74.3         81.803456                       Strong Buy (Long-Term)
+  GOODYEAR.NS      Consumer Cyclical    Small Cap         74.3         81.803456                       Strong Buy (Long-Term)
+ GOKULAGRO.NS     Consumer Defensive    Small Cap         74.2         81.533477                       Strong Buy (Long-Term)
+DEEPAKFERT.NS        Basic Materials    Small Cap         74.0         81.425486                       Strong Buy (Long-Term)
+  AXISBANK.NS     Financial Services    Large Cap         73.9         81.317495                       Strong Buy (Long-Term)
+     FLAIR.NS            Industrials    Small Cap         73.8         81.101512                       Strong Buy (Long-Term)
+  GALAPREC.NS            Industrials    Small Cap         73.8         81.101512                       Strong Buy (Long-Term)
+CAPITALSFB.NS     Financial Services    Small Cap         73.8         81.101512                       Strong Buy (Long-Term)
+  DIVISLAB.NS             Healthcare    Large Cap         73.6         80.777538                       Strong Buy (Long-Term)
+BANDHANBNK.NS     Financial Services      Mid Cap         73.6         80.777538                       Strong Buy (Long-Term)
+ENGINERSIN.NS            Industrials    Small Cap         73.6         80.777538                       Strong Buy (Long-Term)
+      CAMS.NS             Technology    Small Cap         73.4         80.507559                       Strong Buy (Long-Term)
+ARROWGREEN.NS      Consumer Cyclical    Small Cap         73.4         80.507559                       Strong Buy (Long-Term)
+      DJML.NS            Industrials    Small Cap         73.3         80.291577                       Strong Buy (Long-Term)
+     CUPID.NS     Consumer Defensive      Mid Cap         73.3         80.291577                       Strong Buy (Long-Term)
+     ENRIN.NS              Utilities    Large Cap         73.2         80.021598                       Strong Buy (Long-Term)
+  GANESHBE.NS        Basic Materials    Small Cap         73.2         80.021598                       Strong Buy (Long-Term)
+ BLACKBUCK.NS             Technology    Small Cap         73.2         80.021598                       Strong Buy (Long-Term)
+       HEG.NS            Industrials    Small Cap         73.1         79.751620                                   Accumulate
+ ALPINETEX.NS      Consumer Cyclical    Small Cap         73.1         79.751620                                   Accumulate
+  BESTAGRO.NS        Basic Materials    Small Cap         72.9         79.535637                                   Accumulate
+FEDDERSHOL.NS                    NaN    Small Cap         72.9         79.535637                                   Accumulate
+   ELDEHSG.NS            Real Estate    Small Cap         72.8         79.265659                                   Accumulate
+      HSCL.NS        Basic Materials      Mid Cap         72.8         79.265659                                   Accumulate
+DAMCAPITAL.NS     Financial Services    Small Cap         72.8         79.265659                                   Accumulate
+   ASHIKAG.NS                    NaN    Small Cap         72.7         79.049676                                   Accumulate
+GRWRHITECH.NS        Basic Materials    Small Cap         72.6         78.887689                                   Accumulate
+  EUROBOND.NS            Industrials    Small Cap         72.6         78.887689                                   Accumulate
+APOLLOTYRE.NS      Consumer Cyclical      Mid Cap         72.5         78.455724                                   Accumulate
+     GROWW.NS     Financial Services    Large Cap         72.5         78.455724                                   Accumulate
+BMWVENTLTD.NS        Basic Materials    Small Cap         72.5         78.455724                                   Accumulate
+       AGI.NS      Consumer Cyclical    Small Cap         72.5         78.455724                                   Accumulate
+  FORCEMOT.NS      Consumer Cyclical    Small Cap         72.5         78.455724                                   Accumulate
+BANCOINDIA.NS      Consumer Cyclical    Small Cap         72.5         78.455724                                   Accumulate
+   DPWIRES.NS            Industrials    Small Cap         72.4         78.023758                                   Accumulate
+  GAYAPROJ.NS            Industrials    Small Cap         72.4         78.023758                                   Accumulate
+     DBEIL.NS            Industrials    Small Cap         72.3         77.753780                                   Accumulate
+   GLOTTIS.NS            Industrials    Small Cap         72.3         77.753780                                   Accumulate
+  CIEINDIA.NS      Consumer Cyclical    Small Cap         72.3         77.753780                                   Accumulate
+    CORONA.NS             Healthcare    Small Cap         72.2         77.483801                                   Accumulate
+   FRACTAL.NS             Technology    Small Cap         72.2         77.483801                                   Accumulate
+ BODALCHEM.NS        Basic Materials    Small Cap         72.0         77.267819                                   Accumulate
+  GOODLUCK.NS        Basic Materials    Small Cap         72.0         77.267819                                   Accumulate
+   FILATEX.NS      Consumer Cyclical    Small Cap         71.9         76.997840                                   Accumulate
+      AFIL.NS     Financial Services    Small Cap         71.9         76.997840                                   Accumulate
+ATLANTAELE.NS            Industrials    Small Cap         71.9         76.997840                                   Accumulate
+BHARATGEAR.NS      Consumer Cyclical    Small Cap         71.8         76.727862                                   Accumulate
+ CINEVISTA.NS Communication Services    Small Cap         71.8         76.727862                                   Accumulate
+    CPPLUS.NS            Industrials      Mid Cap         71.7         76.403888                                   Accumulate
+    DYNPRO.NS        Basic Materials    Small Cap         71.7         76.403888                                   Accumulate
+   FABTECH.NS             Healthcare    Small Cap         71.7         76.403888                                   Accumulate
+ GRINDWELL.NS            Industrials    Small Cap         71.7         76.403888                                   Accumulate
+  EXIDEIND.NS      Consumer Cyclical      Mid Cap         71.6         76.133909                                   Accumulate
+HARIOMPIPE.NS        Basic Materials    Small Cap         71.4         75.917927                                   Accumulate
+  CCAVENUE.NS             Technology    Small Cap         71.4         75.917927                                   Accumulate
+       FDC.NS             Healthcare    Small Cap         71.4         75.917927                                   Accumulate
+  HDFCBANK.NS     Financial Services    Large Cap         71.3         75.701944                                   Accumulate
+   AMNPLST.NS        Basic Materials    Small Cap         71.2         75.593952                                   Accumulate
+   BAIDFIN.NS     Financial Services    Small Cap         71.1         75.377970                                   Accumulate
+DLINKINDIA.NS             Technology    Small Cap         71.1         75.377970                                   Accumulate
+   BIMETAL.NS      Consumer Cyclical    Small Cap         71.1         75.377970                                   Accumulate
+       BSE.NS     Financial Services    Large Cap         71.0         75.107991                                   Accumulate
+      AIIL.NS     Financial Services      Mid Cap         71.0         75.107991                                   Accumulate
+     GVT&D.NS            Industrials    Large Cap         70.7         74.838013                                   Accumulate
+ GOYALALUM.NS        Basic Materials    Small Cap         70.7         74.838013                                   Accumulate
+ ESABINDIA.NS            Industrials    Small Cap         70.7         74.838013                                   Accumulate
+  CARTRADE.NS      Consumer Cyclical    Small Cap         70.5         74.568035                                   Accumulate
+EIMCOELECO.NS            Industrials    Small Cap         70.5         74.568035                                   Accumulate
+DDEVPLSTIK.NS        Basic Materials    Small Cap         70.4         74.406048                                   Accumulate
+  ATALREAL.NS            Industrials    Small Cap         70.3         74.190065                                   Accumulate
+       BCG.NS Communication Services    Small Cap         70.3         74.190065                                   Accumulate
+      GCSL.NS     Financial Services    Small Cap         70.3         74.190065                                   Accumulate
+   APTECHT.NS     Consumer Defensive    Small Cap         70.2         73.920086                                   Accumulate
+     EFCIL.NS            Real Estate    Small Cap         70.2         73.920086                                   Accumulate
+    AUBANK.NS     Financial Services      Mid Cap         70.1         73.758099                                   Accumulate
+     CPCAP.NS     Financial Services    Small Cap         70.0         73.596112                                   Accumulate
+       CNL.NS             Technology    Small Cap         70.0         73.596112                                   Accumulate
+AMRUTANJAN.NS             Healthcare    Small Cap         69.9         73.434125                                   Accumulate
+      BETA.NS             Healthcare    Small Cap         69.8         73.272138                                   Accumulate
+    CRIZAC.NS     Consumer Defensive    Small Cap         69.8         73.272138                                   Accumulate
+ GUJALKALI.NS        Basic Materials    Small Cap         69.7         73.056156                                   Accumulate
+   GRAVITA.NS            Industrials    Small Cap         69.7         73.056156                                   Accumulate
+  EPACKPEB.NS            Industrials    Small Cap         69.6         72.894168                                   Accumulate
+CORDSCABLE.NS            Industrials    Small Cap         69.5         72.624190                                   Accumulate
+  BANSWRAS.NS      Consumer Cyclical    Small Cap         69.5         72.624190                                   Accumulate
+3BBLACKBIO.NS                    NaN    Small Cap         69.5         72.624190                                   Accumulate
+ASKAUTOLTD.NS      Consumer Cyclical    Small Cap         69.5         72.624190                                   Accumulate
+    GEECEE.NS            Real Estate    Small Cap         69.3         72.300216                                   Accumulate
+   HINDCON.NS        Basic Materials    Small Cap         69.3         72.300216                                   Accumulate
+   AUTOIND.NS      Consumer Cyclical    Small Cap         69.2         72.138229                                   Accumulate
+   ACUTAAS.NS        Basic Materials      Mid Cap         69.1         71.976242                                   Accumulate
+     DIXON.NS             Technology      Mid Cap         69.1         71.976242                                   Accumulate
+  DHANBANK.NS     Financial Services    Small Cap         69.0         71.760259                                   Accumulate
+      ALPA.NS             Healthcare    Small Cap         69.0         71.760259                                   Accumulate
+ASIANPAINT.NS        Basic Materials    Large Cap         68.8         71.598272                                   Accumulate
+ BHAGYANGR.NS        Basic Materials    Small Cap         68.7         71.490281                                   Accumulate
+   ABSLAMC.NS     Financial Services      Mid Cap         68.6         71.274298                                   Accumulate
+      DSSL.NS             Technology    Small Cap         68.6         71.274298                                   Accumulate
+  AEROFLEX.NS            Industrials    Small Cap         68.6         71.274298                                   Accumulate
+CHENNPETRO.NS                 Energy    Small Cap         68.5         70.896328                                   Accumulate
+ADANIPORTS.NS            Industrials    Large Cap         68.5         70.896328                                   Accumulate
+   BOROSCI.NS      Consumer Cyclical    Small Cap         68.5         70.896328                                   Accumulate
+    DENORA.NS            Industrials    Small Cap         68.5         70.896328                                   Accumulate
+GREAVESCOT.NS            Industrials    Small Cap         68.4         70.572354                                   Accumulate
+       CCL.NS     Consumer Defensive    Small Cap         68.4         70.572354                                   Accumulate
+BERGEPAINT.NS        Basic Materials      Mid Cap         68.3         70.302376                                   Accumulate
+  ANGELONE.NS     Financial Services      Mid Cap         68.3         70.302376                                   Accumulate
+ CREDITACC.NS     Financial Services    Small Cap         68.3         70.302376                                   Accumulate
+ANANDRATHI.NS     Financial Services      Mid Cap         68.2         70.086393                                   Accumulate
+BHARTIARTL.NS Communication Services    Large Cap         68.1         69.870410                                   Accumulate
+     AURUM.NS            Real Estate    Small Cap         68.1         69.870410                                   Accumulate
+  BHARATSE.NS      Consumer Cyclical    Small Cap         68.1         69.870410                                   Accumulate
+ECOSMOBLTY.NS            Industrials    Small Cap         68.0         69.600432                                   Accumulate
+  BFINVEST.NS     Financial Services    Small Cap         68.0         69.600432                                   Accumulate
+    HONAUT.NS            Industrials      Mid Cap         67.9         69.384449                                   Accumulate
+     FOCUS.NS      Consumer Cyclical    Small Cap         67.9         69.384449                                   Accumulate
+ ASHOKAMET.NS        Basic Materials    Small Cap         67.8         69.168467                                   Accumulate
+APOLLOHOSP.NS             Healthcare    Large Cap         67.8         69.168467                                   Accumulate
+  ADFFOODS.NS     Consumer Defensive    Small Cap         67.7         68.898488                                   Accumulate
+       AVG.NS            Industrials    Small Cap         67.7         68.898488                                   Accumulate
+  GRAPHITE.NS            Industrials    Small Cap         67.7         68.898488                                   Accumulate
+     HDBFS.NS     Financial Services      Mid Cap         67.5         68.250540                                   Accumulate
+   FEDFINA.NS     Financial Services    Small Cap         67.5         68.250540                                   Accumulate
+      CGCL.NS     Financial Services    Small Cap         67.5         68.250540                                   Accumulate
+GOLDENTOBC.NS     Consumer Defensive    Small Cap         67.5         68.250540                                   Accumulate
+ BLACKROSE.NS                    NaN    Small Cap         67.5         68.250540                                   Accumulate
+     HUDCO.NS     Financial Services      Mid Cap         67.5         68.250540                                   Accumulate
+ ACMESOLAR.NS              Utilities      Mid Cap         67.5         68.250540                                   Accumulate
+  ATULAUTO.NS      Consumer Cyclical    Small Cap         67.5         68.250540                                   Accumulate
+       AYE.NS     Financial Services    Small Cap         67.5         68.250540                                   Accumulate
+    AETHER.NS        Basic Materials    Small Cap         67.4         67.656587                                   Accumulate
+     ARIES.NS        Basic Materials    Small Cap         67.4         67.656587                                   Accumulate
+ALBERTDAVD.NS             Healthcare    Small Cap         67.3         67.440605                                   Accumulate
+ARTEMISMED.NS                    NaN    Small Cap         67.3         67.440605                                   Accumulate
+      ELIN.NS            Industrials    Small Cap         67.2         67.224622                                   Accumulate
+  APARINDS.NS            Industrials      Mid Cap         67.2         67.224622                                   Accumulate
+   GMDCLTD.NS                 Energy    Small Cap         67.1         67.008639                                   Accumulate
+     APTUS.NS     Financial Services    Small Cap         67.1         67.008639                                   Accumulate
+  AJAXENGG.NS            Industrials    Small Cap         67.0         66.792657                                   Accumulate
+ASTRAMICRO.NS             Technology    Small Cap         67.0         66.792657                                   Accumulate
+    HARSHA.NS            Industrials    Small Cap         66.9         66.630670                                   Accumulate
+AFFORDABLE.NS            Industrials    Small Cap         66.8         66.522678                                   Accumulate
+     AIRAN.NS             Technology    Small Cap         66.7         66.360691                                   Accumulate
+      ARIS.NS            Industrials    Small Cap         66.7         66.360691                                   Accumulate
+     EBGNG.NS             Technology    Small Cap         66.6         66.144708                                   Accumulate
+     DABUR.NS     Consumer Defensive      Mid Cap         66.6         66.144708                                   Accumulate
+      HEXT.NS             Technology      Mid Cap         66.5         65.874730                                   Accumulate
+  EMAMILTD.NS     Consumer Defensive    Small Cap         66.5         65.874730                                   Accumulate
+ COALINDIA.NS                 Energy    Large Cap         66.5         65.874730                                   Accumulate
+       AKI.NS      Consumer Cyclical    Small Cap         66.4         65.496760                                   Accumulate
+     DENTA.NS            Industrials    Small Cap         66.4         65.496760                                   Accumulate
+BANARBEADS.NS      Consumer Cyclical    Small Cap         66.4         65.496760                                   Accumulate
+     EMKAY.NS     Financial Services    Small Cap         66.4         65.496760                                   Accumulate
+  GREENPLY.NS        Basic Materials    Small Cap         66.3         65.226782                                   Accumulate
+ GANESHHOU.NS            Real Estate    Small Cap         66.2         65.064795                                   Accumulate
+ HYBRIDFIN.NS     Financial Services    Small Cap         66.2         65.064795                                   Accumulate
+    DONEAR.NS      Consumer Cyclical    Small Cap         66.1         64.848812                                   Accumulate
+       BEL.NS            Industrials    Large Cap         66.1         64.848812                                   Accumulate
+     ALKEM.NS             Healthcare      Mid Cap         66.0         64.524838                                   Accumulate
+      BYKE.NS      Consumer Cyclical    Small Cap         66.0         64.524838                                   Accumulate
+ALEMBICLTD.NS            Real Estate    Small Cap         66.0         64.524838                                   Accumulate
+   AMBIKCO.NS      Consumer Cyclical    Small Cap         66.0         64.524838                                   Accumulate
+     AAVAS.NS     Financial Services    Small Cap         65.9         64.146868                                   Accumulate
+   GANECOS.NS      Consumer Cyclical    Small Cap         65.9         64.146868                                   Accumulate
+  AARTIIND.NS        Basic Materials    Small Cap         65.9         64.146868                                   Accumulate
+BIRLACABLE.NS             Technology    Small Cap         65.8         63.660907                                   Accumulate
+   BAFNAPH.NS             Healthcare    Small Cap         65.8         63.660907                                   Accumulate
+AVANTIFEED.NS     Consumer Defensive    Small Cap         65.8         63.660907                                   Accumulate
+ AMBALALSA.NS             Healthcare    Small Cap         65.8         63.660907                                   Accumulate
+ CYIENTDLM.NS            Industrials    Small Cap         65.8         63.660907                                   Accumulate
+APOLSINHOT.NS            Industrials    Small Cap         65.8         63.660907                                   Accumulate
+ HOMEFIRST.NS     Financial Services    Small Cap         65.7         63.282937                                   Accumulate
+  EMAMIPAP.NS        Basic Materials    Small Cap         65.6         63.174946                                   Accumulate
+HECPROJECT.NS            Industrials    Small Cap         65.5         63.012959                                   Accumulate
+HAPPSTMNDS.NS             Technology    Small Cap         65.5         63.012959                                   Accumulate
+    FORTIS.NS             Healthcare      Mid Cap         65.4         62.850972                                   Accumulate
+ ASPINWALL.NS     Consumer Defensive    Small Cap         65.3         62.580994                                   Accumulate
+   DHARMAJ.NS        Basic Materials    Small Cap         65.3         62.580994                                   Accumulate
+       FCL.NS        Basic Materials    Small Cap         65.3         62.580994                                   Accumulate
+   EIHOTEL.NS      Consumer Cyclical    Small Cap         65.3         62.580994                                   Accumulate
+COSMOFIRST.NS      Consumer Cyclical    Small Cap         65.2         62.257019                                   Accumulate
+   HDFCAMC.NS     Financial Services    Large Cap         65.2         62.257019                                   Accumulate
+    CAMPUS.NS      Consumer Cyclical    Small Cap         65.1         62.095032                                   Accumulate
+       DEN.NS Communication Services    Small Cap         65.0         61.879050                                   Accumulate
+   AHLWEST.NS      Consumer Cyclical    Small Cap         65.0         61.879050                                   Accumulate
+ BANARISUG.NS     Consumer Defensive    Small Cap         65.0         61.879050                                   Accumulate
+       DCW.NS        Basic Materials    Small Cap         64.9         61.609071                                   Accumulate
+  FIBERWEB.NS      Consumer Cyclical    Small Cap         64.9         61.609071                                   Accumulate
+  AEGISLOG.NS                 Energy      Mid Cap         64.7         61.339093                                   Accumulate
+     AFFLE.NS Communication Services    Small Cap         64.7         61.339093                                   Accumulate
+BAJAJHLDNG.NS     Financial Services    Large Cap         64.7         61.339093                                   Accumulate
+ AEROPLANE.NS     Consumer Defensive    Small Cap         64.6         61.015119                                   Accumulate
+  ETHOSLTD.NS      Consumer Cyclical    Small Cap         64.6         61.015119                                   Accumulate
+BIOFILCHEM.NS             Healthcare    Small Cap         64.6         61.015119                                   Accumulate
+   AARTECH.NS            Industrials    Small Cap         64.5         60.691145                                   Accumulate
+  ASIANENE.NS                 Energy    Small Cap         64.5         60.691145                                   Accumulate
+GODFRYPHLP.NS     Consumer Defensive      Mid Cap         64.5         60.691145                                   Accumulate
+       DVL.NS     Financial Services    Small Cap         64.4         60.421166                                   Accumulate
+ DIVGIITTS.NS      Consumer Cyclical    Small Cap         64.4         60.421166                                   Accumulate
+ AURIONPRO.NS             Technology    Small Cap         64.3         60.205184                                   Accumulate
+BALMLAWRIE.NS            Industrials    Small Cap         64.3         60.205184                                   Accumulate
+   DHANUKA.NS        Basic Materials    Small Cap         64.2         60.043197                                   Accumulate
+   GMRP&UI.NS                 Energy    Small Cap         64.1         59.881210                                   Accumulate
+   BLUEJET.NS             Healthcare    Small Cap         64.1         59.881210                                   Accumulate
+     CLEAN.NS        Basic Materials    Small Cap         64.0         59.719222                                   Accumulate
+    DOLLAR.NS      Consumer Cyclical    Small Cap         63.8         59.287257                                   Accumulate
+      BLIL.NS                    NaN    Small Cap         63.8         59.287257                                   Accumulate
+    BONLON.NS        Basic Materials    Small Cap         63.8         59.287257                                   Accumulate
+  GRAUWEIL.NS        Basic Materials    Small Cap         63.8         59.287257                                   Accumulate
+GENUSPAPER.NS        Basic Materials    Small Cap         63.8         59.287257                                   Accumulate
+    HONASA.NS     Consumer Defensive    Small Cap         63.8         59.287257                                   Accumulate
+      BPCL.NS                 Energy    Large Cap         63.8         59.287257                                   Accumulate
+    CONCOR.NS            Industrials      Mid Cap         63.7         58.747300                                   Accumulate
+  CMRGREEN.NS        Basic Materials    Small Cap         63.7         58.747300                                   Accumulate
+  BLUEDART.NS            Industrials    Small Cap         63.7         58.747300                                   Accumulate
+      EIEL.NS            Industrials    Small Cap         63.6         58.477322                                   Accumulate
+     CROWN.NS            Industrials    Small Cap         63.6         58.477322                                   Accumulate
+EQUITASBNK.NS     Financial Services    Small Cap         63.5         58.315335                                   Accumulate
+   BELRISE.NS      Consumer Cyclical    Small Cap         63.4         58.153348                                   Accumulate
+   GABRIEL.NS      Consumer Cyclical      Mid Cap         63.4         58.153348                                   Accumulate
+  DRAGARWQ.NS                    NaN    Small Cap         63.3         57.829374                                   Accumulate
+ASAHIINDIA.NS      Consumer Cyclical    Small Cap         63.3         57.829374                                   Accumulate
+ADVANIHOTR.NS      Consumer Cyclical    Small Cap         63.3         57.829374                                   Accumulate
+     CIPLA.NS             Healthcare    Large Cap         63.3         57.829374                                   Accumulate
+CANFINHOME.NS     Financial Services    Small Cap         63.2         57.559395                                   Accumulate
+   ESCORTS.NS            Industrials      Mid Cap         63.0         57.343413                                   Accumulate
+GREENPOWER.NS              Utilities    Small Cap         63.0         57.343413                                   Accumulate
+      APEX.NS     Consumer Defensive    Small Cap         63.0         57.343413                                   Accumulate
+ AMBUJACEM.NS        Basic Materials    Large Cap         62.9         57.127430                                   Accumulate
+    AAKASH.NS                 Energy    Small Cap         62.8         56.965443                                   Accumulate
+     CELLO.NS      Consumer Cyclical    Small Cap         62.8         56.965443                                   Accumulate
+ ENDURANCE.NS      Consumer Cyclical      Mid Cap         62.7         56.749460                                   Accumulate
+ AADHARHFC.NS     Financial Services    Small Cap         62.7         56.749460                                   Accumulate
+  GILLETTE.NS     Consumer Defensive      Mid Cap         62.6         56.533477                                   Accumulate
+HITECHCORP.NS      Consumer Cyclical    Small Cap         62.6         56.533477                                   Accumulate
+CORALFINAC.NS            Real Estate    Small Cap         62.5         56.371490                                   Accumulate
+  BOSCHLTD.NS      Consumer Cyclical    Large Cap         62.4         56.209503                                   Accumulate
+ DIGIDRIVE.NS      Consumer Cyclical    Small Cap         62.4         56.209503                                   Accumulate
+BAJAJHCARE.NS             Healthcare    Small Cap         62.3         55.993521                                   Accumulate
+ 20MICRONS.NS        Basic Materials    Small Cap         62.3         55.993521                                   Accumulate
+       DLF.NS            Real Estate    Large Cap         62.2         55.777538                                   Accumulate
+    COLPAL.NS     Consumer Defensive      Mid Cap         62.2         55.777538                                   Accumulate
+ COASTCORP.NS     Consumer Defensive    Small Cap         62.1         55.615551                                   Accumulate
+      DMCC.NS        Basic Materials    Small Cap         61.9         55.507559                                   Accumulate
+  AGROPHOS.NS        Basic Materials    Small Cap         61.8         55.399568                                   Accumulate
+   CHEMFAB.NS        Basic Materials    Small Cap         61.7         55.237581                                   Accumulate
+ EDELWEISS.NS     Financial Services    Small Cap         61.7         55.237581                                   Accumulate
+  EIDPARRY.NS        Basic Materials    Small Cap         61.6         54.967603                               Hold / Neutral
+    HNDFDS.NS            Industrials    Small Cap         61.6         54.967603                               Hold / Neutral
+  CINELINE.NS Communication Services    Small Cap         61.6         54.967603                               Hold / Neutral
+    EXXARO.NS            Industrials    Small Cap         61.4         54.697624                               Hold / Neutral
+ CONTROLPR.NS            Industrials    Small Cap         61.4         54.697624                               Hold / Neutral
+ GICHSGFIN.NS     Financial Services    Small Cap         61.3         54.481641                               Hold / Neutral
+CHAMBLFERT.NS        Basic Materials    Small Cap         61.3         54.481641                               Hold / Neutral
+HITECHGEAR.NS      Consumer Cyclical    Small Cap         61.1         54.211663                               Hold / Neutral
+       ACC.NS        Basic Materials      Mid Cap         61.1         54.211663                               Hold / Neutral
+      AZAD.NS            Industrials    Small Cap         61.1         54.211663                               Hold / Neutral
+    ASTRAL.NS            Industrials      Mid Cap         61.0         53.941685                               Hold / Neutral
+  ELITECON.NS                    NaN    Small Cap         61.0         53.941685                               Hold / Neutral
+     AURUS.NS      Consumer Cyclical    Small Cap         60.9         53.671706                               Hold / Neutral
+   CMSINFO.NS            Industrials    Small Cap         60.9         53.671706                               Hold / Neutral
+    GENSOL.NS             Technology    Small Cap         60.9         53.671706                               Hold / Neutral
+  GUFICBIO.NS             Healthcare    Small Cap         60.7         53.347732                               Hold / Neutral
+   HUBTOWN.NS            Real Estate    Small Cap         60.7         53.347732                               Hold / Neutral
+  CANTABIL.NS      Consumer Cyclical    Small Cap         60.7         53.347732                               Hold / Neutral
+ GINNIFILA.NS      Consumer Cyclical    Small Cap         60.6         53.077754                               Hold / Neutral
+  CHOLAFIN.NS     Financial Services    Large Cap         60.6         53.077754                               Hold / Neutral
+   GATEWAY.NS            Industrials    Small Cap         60.5         52.699784                               Hold / Neutral
+ EXCELSOFT.NS             Technology    Small Cap         60.5         52.699784                               Hold / Neutral
+FAIRCHEMOR.NS        Basic Materials    Small Cap         60.5         52.699784                               Hold / Neutral
+   GRMOVER.NS     Consumer Defensive    Small Cap         60.5         52.699784                               Hold / Neutral
+   ASALCBR.NS     Consumer Defensive    Small Cap         60.5         52.699784                               Hold / Neutral
+     EMMBI.NS      Consumer Cyclical    Small Cap         60.4         52.321814                               Hold / Neutral
+EVERESTIND.NS            Industrials    Small Cap         60.4         52.321814                               Hold / Neutral
+       AVL.NS      Consumer Cyclical    Small Cap         60.3         52.105832                               Hold / Neutral
+  GPTINFRA.NS            Industrials    Small Cap         60.3         52.105832                               Hold / Neutral
+     DUCON.NS            Industrials    Small Cap         60.1         51.889849                               Hold / Neutral
+   EPIGRAL.NS        Basic Materials    Small Cap         60.1         51.889849                               Hold / Neutral
+BLUESTARCO.NS            Industrials      Mid Cap         59.9         51.727862                               Hold / Neutral
+  CONFIPET.NS                 Energy    Small Cap         59.8         51.565875                               Hold / Neutral
+       DBL.NS            Industrials    Small Cap         59.8         51.565875                               Hold / Neutral
+  FMGOETZE.NS      Consumer Cyclical    Small Cap         59.7         51.403888                               Hold / Neutral
+     GLOBE.NS      Consumer Cyclical    Small Cap         59.5         51.241901                               Hold / Neutral
+   ASHIANA.NS            Real Estate    Small Cap         59.5         51.241901                               Hold / Neutral
+      ANUP.NS            Industrials    Small Cap         59.4         50.971922                               Hold / Neutral
+  HALDYNGL.NS                    NaN    Small Cap         59.4         50.971922                               Hold / Neutral
+AEGISVOPAK.NS                 Energy      Mid Cap         59.4         50.971922                               Hold / Neutral
+   HARDWYN.NS            Industrials    Small Cap         59.3         50.647948                               Hold / Neutral
+    ARSSBL.NS     Financial Services    Small Cap         59.3         50.647948                               Hold / Neutral
+       GNA.NS      Consumer Cyclical    Small Cap         59.3         50.647948                               Hold / Neutral
+  GALLANTT.NS        Basic Materials    Small Cap         59.2         50.269978                               Hold / Neutral
+CYBERMEDIA.NS Communication Services    Small Cap         59.2         50.269978                               Hold / Neutral
+    CYIENT.NS            Industrials    Small Cap         59.2         50.269978                               Hold / Neutral
+    AVALON.NS             Technology    Small Cap         59.2         50.269978                               Hold / Neutral
+    DEEDEV.NS            Industrials    Small Cap         59.1         49.946004                               Hold / Neutral
+CENTURYPLY.NS        Basic Materials    Small Cap         59.1         49.946004                               Hold / Neutral
+  AHLUCONT.NS            Industrials    Small Cap         59.0         49.568035                               Hold / Neutral
+AGARWALEYE.NS             Healthcare    Small Cap         59.0         49.568035                               Hold / Neutral
+      ADSL.NS             Technology    Small Cap         59.0         49.568035                               Hold / Neutral
+      ASAL.NS      Consumer Cyclical    Small Cap         59.0         49.568035                               Hold / Neutral
+     AWFIS.NS            Industrials    Small Cap         59.0         49.568035                               Hold / Neutral
+ CRAFTSMAN.NS      Consumer Cyclical      Mid Cap         58.7         49.190065                               Hold / Neutral
+      BLSE.NS            Industrials    Small Cap         58.7         49.190065                               Hold / Neutral
+       BBL.NS            Industrials    Small Cap         58.4         48.920086                               Hold / Neutral
+      CDSL.NS     Financial Services      Mid Cap         58.4         48.920086                               Hold / Neutral
+GANGESSECU.NS     Consumer Defensive    Small Cap         58.4         48.920086                               Hold / Neutral
+    CHALET.NS      Consumer Cyclical    Small Cap         58.3         48.542117                               Hold / Neutral
+       EPL.NS      Consumer Cyclical    Small Cap         58.3         48.542117                               Hold / Neutral
+  HILINFRA.NS            Industrials    Small Cap         58.3         48.542117                               Hold / Neutral
+ 3IINFOLTD.NS             Technology    Small Cap         58.3         48.542117                               Hold / Neutral
+DREAMFOLKS.NS            Industrials    Small Cap         58.2         48.218143                               Hold / Neutral
+BALKRISIND.NS      Consumer Cyclical      Mid Cap         58.2         48.218143                               Hold / Neutral
+     HIKAL.NS             Healthcare    Small Cap         58.1         48.056156                               Hold / Neutral
+BAJAJINDEF.NS            Industrials    Small Cap         58.0         47.894168                               Hold / Neutral
+     DODLA.NS     Consumer Defensive    Small Cap         58.0         47.894168                               Hold / Neutral
+   HATHWAY.NS Communication Services    Small Cap         57.9         47.678186                               Hold / Neutral
+     ARVEE.NS        Basic Materials    Small Cap         57.9         47.678186                               Hold / Neutral
+BHARATWIRE.NS        Basic Materials    Small Cap         57.8         47.462203                               Hold / Neutral
+  FIVESTAR.NS     Financial Services    Small Cap         57.8         47.462203                               Hold / Neutral
+      CERA.NS            Industrials    Small Cap         57.7         47.138229                               Hold / Neutral
+   GSPCROP.NS        Basic Materials    Small Cap         57.7         47.138229                               Hold / Neutral
+    APOLLO.NS            Industrials    Small Cap         57.7         47.138229                               Hold / Neutral
+   ANUHPHR.NS             Healthcare    Small Cap         57.7         47.138229                               Hold / Neutral
+     CPEDU.NS     Consumer Defensive    Small Cap         57.5         46.544276                               Hold / Neutral
+  GTLINFRA.NS             Technology    Small Cap         57.5         46.544276                               Hold / Neutral
+   CGPOWER.NS            Industrials    Large Cap         57.5         46.544276                               Hold / Neutral
+  ASHOKLEY.NS            Industrials    Large Cap         57.5         46.544276                               Hold / Neutral
+ BELLACASA.NS      Consumer Cyclical    Small Cap         57.5         46.544276                               Hold / Neutral
+   AMJLAND.NS            Real Estate    Small Cap         57.5         46.544276                               Hold / Neutral
+ADANIENSOL.NS              Utilities    Large Cap         57.5         46.544276                               Hold / Neutral
+ APLAPOLLO.NS        Basic Materials      Mid Cap         57.4         46.058315                               Hold / Neutral
+BAJFINANCE.NS     Financial Services    Large Cap         57.4         46.058315                               Hold / Neutral
+      CESC.NS              Utilities    Small Cap         57.3         45.626350                               Hold / Neutral
+   CENTEXT.NS        Basic Materials    Small Cap         57.3         45.626350                               Hold / Neutral
+AARTIDRUGS.NS             Healthcare    Small Cap         57.3         45.626350                               Hold / Neutral
+   HYUNDAI.NS      Consumer Cyclical    Large Cap         57.3         45.626350                               Hold / Neutral
+  BAJAJHFL.NS     Financial Services      Mid Cap         57.3         45.626350                               Hold / Neutral
+BHARTIHEXA.NS Communication Services      Mid Cap         57.3         45.626350                               Hold / Neutral
+ ABCAPITAL.NS     Financial Services    Large Cap         57.2         45.140389                               Hold / Neutral
+ CENTRALBK.NS     Financial Services      Mid Cap         57.2         45.140389                               Hold / Neutral
+EMSLIMITED.NS            Industrials    Small Cap         57.2         45.140389                               Hold / Neutral
+   GROBTEA.NS     Consumer Defensive    Small Cap         57.1         44.870410                               Hold / Neutral
+     ANMOL.NS                 Energy    Small Cap         57.1         44.870410                               Hold / Neutral
+ADROITINFO.NS             Technology    Small Cap         56.9         44.600432                               Hold / Neutral
+   AVANTEL.NS             Technology    Small Cap         56.9         44.600432                               Hold / Neutral
+HISARMETAL.NS        Basic Materials    Small Cap         56.9         44.600432                               Hold / Neutral
+      AFSL.NS     Financial Services    Small Cap         56.6         44.384449                               Hold / Neutral
+GFLLIMITED.NS     Financial Services    Small Cap         56.5         44.276458                               Hold / Neutral
+      GNRL.NS                    NaN    Small Cap         56.4         44.168467                               Hold / Neutral
+      BHEL.NS            Industrials    Large Cap         56.3         43.952484                               Hold / Neutral
+ GUJRAFFIA.NS                    NaN    Small Cap         56.3         43.952484                               Hold / Neutral
+  CROMPTON.NS      Consumer Cyclical    Small Cap         56.3         43.952484                               Hold / Neutral
+AVADHSUGAR.NS     Consumer Defensive    Small Cap         56.2         43.682505                               Hold / Neutral
+GODREJPROP.NS            Real Estate      Mid Cap         56.2         43.682505                               Hold / Neutral
+       ABB.NS            Industrials    Large Cap         56.1         43.412527                               Hold / Neutral
+     BSHSL.NS        Basic Materials    Small Cap         56.1         43.412527                               Hold / Neutral
+    ELECON.NS            Industrials    Small Cap         56.1         43.412527                               Hold / Neutral
+ DIGISPICE.NS     Financial Services    Small Cap         56.0         43.088553                               Hold / Neutral
+    CEMPRO.NS            Industrials    Small Cap         56.0         43.088553                               Hold / Neutral
+HEIDELBERG.NS        Basic Materials    Small Cap         56.0         43.088553                               Hold / Neutral
+     GOPAL.NS     Consumer Defensive    Small Cap         55.7         42.710583                               Hold / Neutral
+      HFCL.NS             Technology      Mid Cap         55.7         42.710583                               Hold / Neutral
+HERITGFOOD.NS     Consumer Defensive    Small Cap         55.7         42.710583                               Hold / Neutral
+BIRLACORPN.NS        Basic Materials    Small Cap         55.7         42.710583                               Hold / Neutral
+  AUSOMENT.NS     Financial Services    Small Cap         55.6         42.440605                               Hold / Neutral
+  ACCURACY.NS            Industrials    Small Cap         55.5         42.278618                               Hold / Neutral
+   DRREDDY.NS             Healthcare      Mid Cap         55.5         42.278618                               Hold / Neutral
+CSLFINANCE.NS     Financial Services    Small Cap         55.4         41.954644                               Hold / Neutral
+  CHOICEIN.NS     Financial Services    Small Cap         55.4         41.954644                               Hold / Neutral
+CHOLAHLDNG.NS     Financial Services      Mid Cap         55.4         41.954644                               Hold / Neutral
+GMMPFAUDLR.NS            Industrials    Small Cap         55.4         41.954644                               Hold / Neutral
+AAREYDRUGS.NS             Healthcare    Small Cap         55.1         41.630670                               Hold / Neutral
+HALEOSLABS.NS             Healthcare    Small Cap         55.1         41.630670                               Hold / Neutral
+      CCCL.NS            Industrials    Small Cap         55.0         41.306695                               Hold / Neutral
+CUMMINSIND.NS            Industrials    Large Cap         55.0         41.306695                               Hold / Neutral
+    AASTHA.NS      Consumer Cyclical    Small Cap         55.0         41.306695                               Hold / Neutral
+  CAPACITE.NS            Industrials    Small Cap         55.0         41.306695                               Hold / Neutral
+HINDUNILVR.NS     Consumer Defensive    Large Cap         54.9         41.036717                               Hold / Neutral
+      BTML.NS Communication Services    Small Cap         54.6         40.874730                               Hold / Neutral
+  BHAGCHEM.NS        Basic Materials    Small Cap         54.6         40.874730                               Hold / Neutral
+ DIAMINESQ.NS        Basic Materials    Small Cap         54.5         40.712743                               Hold / Neutral
+BANKBARODA.NS     Financial Services    Large Cap         54.4         40.604752                               Hold / Neutral
+    DHARAN.NS            Real Estate    Small Cap         54.3         40.496760                               Hold / Neutral
+DIGJAMLMTD.NS      Consumer Cyclical    Small Cap         54.2         40.334773                               Hold / Neutral
+     GICRE.NS     Financial Services      Mid Cap         54.2         40.334773                               Hold / Neutral
+ GATECHDVR.NS     Financial Services    Small Cap         54.1         40.064795                               Hold / Neutral
+    GATECH.NS     Financial Services    Small Cap         54.1         40.064795                               Hold / Neutral
+   COHANCE.NS             Healthcare    Small Cap         54.1         40.064795                               Hold / Neutral
+   FCSSOFT.NS             Technology    Small Cap         54.0         39.686825                               Hold / Neutral
+ GODREJIND.NS            Industrials      Mid Cap         54.0         39.686825                               Hold / Neutral
+GALAXYSURF.NS        Basic Materials    Small Cap         54.0         39.686825                               Hold / Neutral
+    ARVIND.NS      Consumer Cyclical    Small Cap         54.0         39.686825                               Hold / Neutral
+ DELTACORP.NS      Consumer Cyclical    Small Cap         53.9         39.308855                               Hold / Neutral
+GEEKAYWIRE.NS            Industrials    Small Cap         53.9         39.308855                               Hold / Neutral
+    ANTHEM.NS             Healthcare      Mid Cap         53.9         39.308855                               Hold / Neutral
+      DBOL.NS     Consumer Defensive    Small Cap         53.8         39.092873                               Hold / Neutral
+ GEOJITFSL.NS     Financial Services    Small Cap         53.7         38.984881                               Hold / Neutral
+   GRINFRA.NS            Industrials    Small Cap         53.6         38.822894                               Hold / Neutral
+APOLLOPIPE.NS            Industrials    Small Cap         53.6         38.822894                               Hold / Neutral
+   ALANKIT.NS             Technology    Small Cap         53.5         38.552916                               Hold / Neutral
+GILLANDERS.NS     Consumer Defensive    Small Cap         53.5         38.552916                               Hold / Neutral
+COROMANDEL.NS        Basic Materials      Mid Cap         53.5         38.552916                               Hold / Neutral
+   ARIHANT.NS            Real Estate    Small Cap         53.4         38.336933                               Hold / Neutral
+     CREST.NS     Financial Services    Small Cap         53.3         38.174946                               Hold / Neutral
+  GODREJCP.NS     Consumer Defensive    Large Cap         53.3         38.174946                               Hold / Neutral
+   DIACABS.NS            Industrials    Small Cap         53.2         37.958963                               Hold / Neutral
+ BLUSPRING.NS            Industrials    Small Cap         53.2         37.958963                               Hold / Neutral
+AARTIPHARM.NS             Healthcare    Small Cap         53.1         37.742981                               Hold / Neutral
+DBSTOCKBRO.NS     Financial Services    Small Cap         53.1         37.742981                               Hold / Neutral
+ CAPILLARY.NS             Technology    Small Cap         53.0         37.526998                               Hold / Neutral
+  FINKURVE.NS     Financial Services    Small Cap         53.0         37.526998                               Hold / Neutral
+    BCLIND.NS     Consumer Defensive    Small Cap         52.9         37.311015                               Hold / Neutral
+   HMAAGRO.NS     Consumer Defensive    Small Cap         52.9         37.311015                               Hold / Neutral
+   CEATLTD.NS      Consumer Cyclical    Small Cap         52.8         37.095032                               Hold / Neutral
+       FSL.NS             Technology    Small Cap         52.8         37.095032                               Hold / Neutral
+GLOBECIVIL.NS            Industrials    Small Cap         52.7         36.933045                               Hold / Neutral
+     GYFTR.NS            Industrials    Small Cap         52.6         36.717063                               Hold / Neutral
+      GSFC.NS        Basic Materials    Small Cap         52.6         36.717063                               Hold / Neutral
+  GOCOLORS.NS      Consumer Cyclical    Small Cap         52.6         36.717063                               Hold / Neutral
+   ABINFRA.NS            Industrials    Small Cap         52.5         36.393089                               Hold / Neutral
+   ETERNAL.NS      Consumer Cyclical    Large Cap         52.5         36.393089                               Hold / Neutral
+   63MOONS.NS             Technology    Small Cap         52.5         36.393089                               Hold / Neutral
+ATHERENERG.NS      Consumer Cyclical      Mid Cap         52.4         36.015119                               Hold / Neutral
+GODREJAGRO.NS     Consumer Defensive    Small Cap         52.4         36.015119                               Hold / Neutral
+      DEVX.NS            Real Estate    Small Cap         52.4         36.015119                               Hold / Neutral
+     AWHCL.NS            Industrials    Small Cap         52.4         36.015119                               Hold / Neutral
+EXCELINDUS.NS        Basic Materials    Small Cap         52.2         35.691145                               Hold / Neutral
+ BAJAJHIND.NS     Consumer Defensive    Small Cap         52.2         35.691145                               Hold / Neutral
+       DCM.NS            Industrials    Small Cap         52.1         35.529158                               Hold / Neutral
+    360ONE.NS     Financial Services      Mid Cap         52.0         35.367171                               Hold / Neutral
+      FMNL.NS            Real Estate    Small Cap         52.0         35.367171                               Hold / Neutral
+     AKUMS.NS             Healthcare    Small Cap         51.9         35.097192                               Hold / Neutral
+    5PAISA.NS     Financial Services    Small Cap         51.9         35.097192                               Hold / Neutral
+  FERMENTA.NS                    NaN    Small Cap         51.9         35.097192                               Hold / Neutral
+    CENTUM.NS             Technology    Small Cap         51.8         34.827214                               Hold / Neutral
+   HAVELLS.NS            Industrials      Mid Cap         51.8         34.827214                               Hold / Neutral
+    ENTERO.NS             Healthcare    Small Cap         51.6         34.611231                               Hold / Neutral
+    COMSYN.NS      Consumer Cyclical    Small Cap         51.6         34.611231                               Hold / Neutral
+      HPIL.NS        Basic Materials    Small Cap         51.5         34.395248                               Hold / Neutral
+   EMPOWER.NS                    NaN    Small Cap         51.5         34.395248                               Hold / Neutral
+       HCC.NS            Industrials    Small Cap         51.4         34.233261                               Hold / Neutral
+    FAZE3Q.NS      Consumer Cyclical    Small Cap         51.3         34.125270                               Hold / Neutral
+ COMPUSOFT.NS     Consumer Defensive    Small Cap         51.2         33.963283                               Hold / Neutral
+   BRIGADE.NS            Real Estate    Small Cap         51.2         33.963283                               Hold / Neutral
+DATAPATTNS.NS            Industrials    Small Cap         51.1         33.747300                               Hold / Neutral
+BHARATCOAL.NS        Basic Materials    Small Cap         51.1         33.747300                               Hold / Neutral
+     BBTCL.NS      Consumer Cyclical    Small Cap         51.0         33.531317                               Hold / Neutral
+   AKCAPIT.NS                    NaN    Small Cap         51.0         33.531317                               Hold / Neutral
+   FISCHER.NS             Healthcare    Small Cap         50.9         33.369330                               Hold / Neutral
+ANDHRSUGAR.NS        Basic Materials    Small Cap         50.8         33.207343                               Hold / Neutral
+ ADVENTHTL.NS      Consumer Cyclical    Small Cap         50.8         33.207343                               Hold / Neutral
+  ASTRAZEN.NS             Healthcare    Small Cap         50.7         32.991361                               Hold / Neutral
+     BAJEL.NS              Utilities    Small Cap         50.7         32.991361                               Hold / Neutral
+ BOMDYEING.NS      Consumer Cyclical    Small Cap         50.4         32.775378                               Hold / Neutral
+   GUJTHEM.NS             Healthcare    Small Cap         50.4         32.775378                               Hold / Neutral
+AMBICAAGAR.NS     Consumer Defensive    Small Cap         50.3         32.505400                               Hold / Neutral
+  DWARKESH.NS     Consumer Defensive    Small Cap         50.3         32.505400                               Hold / Neutral
+     AEQUS.NS            Industrials    Small Cap         50.3         32.505400                               Hold / Neutral
+ DEEPAKNTR.NS        Basic Materials    Small Cap         50.2         32.289417                               Hold / Neutral
+     HBESD.NS                    NaN    Small Cap         50.0         32.073434                               Hold / Neutral
+    3PLAND.NS                    NaN    Small Cap         50.0         32.073434                               Hold / Neutral
+ ELPROINTL.NS                    NaN    Small Cap         50.0         32.073434                               Hold / Neutral
+     DMART.NS     Consumer Defensive    Large Cap         49.8         31.803456                               Hold / Neutral
+ COFFEEDAY.NS      Consumer Cyclical    Small Cap         49.8         31.803456                               Hold / Neutral
+     AARON.NS            Industrials    Small Cap         49.6         31.533477                               Hold / Neutral
+COCHINSHIP.NS            Industrials      Mid Cap         49.6         31.533477                               Hold / Neutral
+HINDOILEXP.NS                 Energy    Small Cap         49.6         31.533477                               Hold / Neutral
+   BOROLTD.NS      Consumer Cyclical    Small Cap         49.5         31.263499                               Hold / Neutral
+      AEPL.NS            Industrials    Small Cap         49.5         31.263499                               Hold / Neutral
+       ATL.NS            Industrials    Small Cap         49.4         31.047516                               Hold / Neutral
+      CMLL.NS                 Energy    Small Cap         49.4         31.047516                               Hold / Neutral
+       E2E.NS             Technology    Small Cap         49.2         30.831533                               Hold / Neutral
+  DIGITIDE.NS            Industrials    Small Cap         49.2         30.831533                               Hold / Neutral
+   HTMEDIA.NS Communication Services    Small Cap         49.1         30.453564                               Hold / Neutral
+    ALKALI.NS        Basic Materials    Small Cap         49.1         30.453564                               Hold / Neutral
+CONSOFINVT.NS     Financial Services    Small Cap         49.1         30.453564                               Hold / Neutral
+ ASHIMASYN.NS            Real Estate    Small Cap         49.1         30.453564                               Hold / Neutral
+ DALBHARAT.NS        Basic Materials      Mid Cap         49.1         30.453564                               Hold / Neutral
+      ATAM.NS            Industrials    Small Cap         49.0         30.021598                               Hold / Neutral
+  ARMANFIN.NS     Financial Services    Small Cap         49.0         30.021598                               Hold / Neutral
+      HPAL.NS        Basic Materials    Small Cap         49.0         30.021598                               Hold / Neutral
+      HBSL.NS     Financial Services    Small Cap         48.9         29.697624                               Hold / Neutral
+  CUBEXTUB.NS        Basic Materials    Small Cap         48.9         29.697624                               Hold / Neutral
+    AMANTA.NS             Healthcare    Small Cap         48.9         29.697624                               Hold / Neutral
+ DALMIASUG.NS     Consumer Defensive    Small Cap         48.8         29.427646                               Hold / Neutral
+    HITECH.NS        Basic Materials    Small Cap         48.8         29.427646                               Hold / Neutral
+  HINDALCO.NS        Basic Materials    Large Cap         48.7         29.211663                               Hold / Neutral
+ BENGALASM.NS                    NaN    Small Cap         48.7         29.211663                               Hold / Neutral
+AKSHARCHEM.NS        Basic Materials    Small Cap         48.4         28.995680                               Hold / Neutral
+      DOMS.NS            Industrials    Small Cap         48.4         28.995680                               Hold / Neutral
+     ARFIN.NS        Basic Materials    Small Cap         48.3         28.833693                               Hold / Neutral
+    AJOONI.NS     Consumer Defensive    Small Cap         48.2         28.725702                               Hold / Neutral
+    HALDER.NS     Consumer Defensive    Small Cap         48.1         28.617711                               Hold / Neutral
+    AQYLON.NS Communication Services    Small Cap         48.0         28.455724                               Hold / Neutral
+    AFCONS.NS            Industrials    Small Cap         48.0         28.455724                               Hold / Neutral
+ GRADIENTE.NS Communication Services    Small Cap         47.9         28.131749                               Hold / Neutral
+      BBOX.NS             Technology    Small Cap         47.9         28.131749                               Hold / Neutral
+BANSALWIRE.NS        Basic Materials    Small Cap         47.9         28.131749                               Hold / Neutral
+       HPL.NS            Industrials    Small Cap         47.9         28.131749                               Hold / Neutral
+ COCKERILL.NS            Industrials    Small Cap         47.8         27.861771                               Hold / Neutral
+      EMIL.NS      Consumer Cyclical    Small Cap         47.6         27.753780                               Hold / Neutral
+   AVROIND.NS      Consumer Cyclical    Small Cap         47.5         27.645788                               Hold / Neutral
+    AMDIND.NS      Consumer Cyclical    Small Cap         47.4         27.483801                               Hold / Neutral
+    GRASIM.NS        Basic Materials    Large Cap         47.4         27.483801                               Hold / Neutral
+     DISAQ.NS                    NaN    Small Cap         47.3         27.267819                               Hold / Neutral
+   CEWATER.NS              Utilities    Small Cap         47.3         27.267819                               Hold / Neutral
+GANGAFORGE.NS            Industrials    Small Cap         47.1         27.105832                               Hold / Neutral
+ DAVANGERE.NS     Consumer Defensive    Small Cap         46.9         26.835853                               Hold / Neutral
+  A2ZINFRA.NS            Industrials    Small Cap         46.9         26.835853                               Hold / Neutral
+   AGARIND.NS        Basic Materials    Small Cap         46.9         26.835853                               Hold / Neutral
+ BAJAJELEC.NS      Consumer Cyclical    Small Cap         46.9         26.835853                               Hold / Neutral
+    GENCON.NS            Industrials    Small Cap         46.7         26.565875                               Hold / Neutral
+   DHUNINV.NS     Financial Services    Small Cap         46.6         26.403888                               Hold / Neutral
+  CANHLIFE.NS     Financial Services    Small Cap         46.6         26.403888                               Hold / Neutral
+      CIFL.NS     Financial Services    Small Cap         46.5         26.241901                               Hold / Neutral
+  HDFCLIFE.NS     Financial Services    Large Cap         46.2         26.079914                               Hold / Neutral
+BECTORFOOD.NS     Consumer Defensive    Small Cap         46.2         26.079914                               Hold / Neutral
+ ELECTCAST.NS            Industrials    Small Cap         46.0         25.917927                               Hold / Neutral
+    GRPLTD.NS      Consumer Cyclical    Small Cap         45.6         25.809935                               Hold / Neutral
+     CURAA.NS             Technology    Small Cap         45.5         25.701944                               Hold / Neutral
+BIRLAMONEY.NS     Financial Services    Small Cap         45.4         25.539957                               Hold / Neutral
+ ARCHIDPLY.NS        Basic Materials    Small Cap         45.4         25.539957                               Hold / Neutral
+ GUJAPOLLO.NS            Industrials    Small Cap         45.3         25.377970                               Hold / Neutral
+   DPSCLTD.NS              Utilities    Small Cap         45.2         25.269978                               Hold / Neutral
+  DCMSRIND.NS     Consumer Defensive    Small Cap         45.1         25.107991                               Hold / Neutral
+ GOACARBON.NS        Basic Materials    Small Cap         45.1         25.107991                               Hold / Neutral
+EUROTEXIND.NS            Real Estate    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+   ESAFSFB.NS     Financial Services    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+ESSARSHPNG.NS            Industrials    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+      FLFL.NS      Consumer Cyclical    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+   GAYAHWS.NS            Industrials    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+BALKRISHNA.NS      Consumer Cyclical    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+      HDIL.NS            Real Estate    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+    DISHTV.NS Communication Services    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+  ANSALAPI.NS            Real Estate    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+      BCPL.NS            Industrials    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+  ALOKINDS.NS      Consumer Cyclical    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+  BLUECHIP.NS     Financial Services    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+ BILVYAPAR.NS        Basic Materials    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+ FLEXITUFF.NS      Consumer Cyclical    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+ANKITMETAL.NS        Basic Materials    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+ ENERGYDEV.NS              Utilities    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+   ARSHIYA.NS            Industrials    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+DSKULKARNI.NS            Real Estate    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+  DNAMEDIA.NS Communication Services    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+  AGRITECH.NS     Consumer Defensive    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+AKSHOPTFBR.NS             Technology    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+ BLUECOAST.NS      Consumer Cyclical    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+       AGL.NS            Industrials    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+ BGRENERGY.NS            Industrials    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+   DEVYANI.NS      Consumer Cyclical    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+DCMFINSERV.NS     Financial Services    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+ HCL-INSYS.NS             Technology    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+ EMAMIREAL.NS            Real Estate    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+       HMT.NS            Industrials    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+      ABAN.NS                 Energy    Small Cap         45.0         23.380130 Avoid (Weak Fundamentals, Relative to Peers)
+     AXITA.NS      Consumer Cyclical    Small Cap         44.8         21.652268 Avoid (Weak Fundamentals, Relative to Peers)
+ HINDPETRO.NS                 Energy      Mid Cap         44.8         21.652268 Avoid (Weak Fundamentals, Relative to Peers)
+    ABCOTS.NS      Consumer Cyclical    Small Cap         44.6         21.436285 Avoid (Weak Fundamentals, Relative to Peers)
+    BIKAJI.NS     Consumer Defensive    Small Cap         44.6         21.436285 Avoid (Weak Fundamentals, Relative to Peers)
+       ACI.NS        Basic Materials    Small Cap         44.5         21.220302 Avoid (Weak Fundamentals, Relative to Peers)
+       BDL.NS            Industrials      Mid Cap         44.5         21.220302 Avoid (Weak Fundamentals, Relative to Peers)
+  BHANDARI.NS      Consumer Cyclical    Small Cap         44.4         21.058315 Avoid (Weak Fundamentals, Relative to Peers)
+ GUJENERGY.NS              Utilities    Small Cap         44.3         20.896328 Avoid (Weak Fundamentals, Relative to Peers)
+   ACSTECH.NS                    NaN    Small Cap         44.3         20.896328 Avoid (Weak Fundamentals, Relative to Peers)
+    HILTON.NS            Industrials    Small Cap         44.2         20.734341 Avoid (Weak Fundamentals, Relative to Peers)
+ CLEDUCATE.NS     Consumer Defensive    Small Cap         44.1         20.626350 Avoid (Weak Fundamentals, Relative to Peers)
+ADANIGREEN.NS              Utilities    Large Cap         44.0         20.518359 Avoid (Weak Fundamentals, Relative to Peers)
+   GODIGIT.NS     Financial Services      Mid Cap         43.9         20.248380 Avoid (Weak Fundamentals, Relative to Peers)
+  ADANIENT.NS                 Energy    Large Cap         43.9         20.248380 Avoid (Weak Fundamentals, Relative to Peers)
+   ALLTIME.NS     Consumer Defensive    Small Cap         43.9         20.248380 Avoid (Weak Fundamentals, Relative to Peers)
+     EIFFL.NS     Consumer Defensive    Small Cap         43.9         20.248380 Avoid (Weak Fundamentals, Relative to Peers)
+DHAMPURSUG.NS     Consumer Defensive    Small Cap         43.8         19.978402 Avoid (Weak Fundamentals, Relative to Peers)
+   GENESYS.NS             Technology    Small Cap         43.6         19.870410 Avoid (Weak Fundamentals, Relative to Peers)
+   ELCIDIN.NS                    NaN    Small Cap         43.5         19.708423 Avoid (Weak Fundamentals, Relative to Peers)
+     ASTEC.NS        Basic Materials    Small Cap         43.5         19.708423 Avoid (Weak Fundamentals, Relative to Peers)
+ALKYLAMINE.NS        Basic Materials    Small Cap         43.4         19.492441 Avoid (Weak Fundamentals, Relative to Peers)
+      DCAL.NS             Healthcare    Small Cap         43.4         19.492441 Avoid (Weak Fundamentals, Relative to Peers)
+      ATGL.NS              Utilities      Mid Cap         43.3         19.330454 Avoid (Weak Fundamentals, Relative to Peers)
+ COUNCODOS.NS            Real Estate    Small Cap         43.2         19.114471 Avoid (Weak Fundamentals, Relative to Peers)
+     ESTER.NS        Basic Materials    Small Cap         43.2         19.114471 Avoid (Weak Fundamentals, Relative to Peers)
+    ALICON.NS            Industrials    Small Cap         43.2         19.114471 Avoid (Weak Fundamentals, Relative to Peers)
+EUREKAFORB.NS      Consumer Cyclical    Small Cap         43.1         18.736501 Avoid (Weak Fundamentals, Relative to Peers)
+  BAGFILMS.NS Communication Services    Small Cap         43.1         18.736501 Avoid (Weak Fundamentals, Relative to Peers)
+   FOODSIN.NS     Consumer Defensive    Small Cap         43.1         18.736501 Avoid (Weak Fundamentals, Relative to Peers)
+   GVPTECH.NS             Technology    Small Cap         43.1         18.736501 Avoid (Weak Fundamentals, Relative to Peers)
+ FOSECOIND.NS        Basic Materials    Small Cap         42.8         18.412527 Avoid (Weak Fundamentals, Relative to Peers)
+   AAATECH.NS             Technology    Small Cap         42.8         18.412527 Avoid (Weak Fundamentals, Relative to Peers)
+   ELANTAS.NS        Basic Materials    Small Cap         42.6         18.250540 Avoid (Weak Fundamentals, Relative to Peers)
+GKWLIMITED.NS            Industrials    Small Cap         42.5         17.980562 Avoid (Weak Fundamentals, Relative to Peers)
+  ACEINTEG.NS            Industrials    Small Cap         42.5         17.980562 Avoid (Weak Fundamentals, Relative to Peers)
+  DCXINDIA.NS            Industrials    Small Cap         42.5         17.980562 Avoid (Weak Fundamentals, Relative to Peers)
+HEXATRADEX.NS     Financial Services    Small Cap         42.5         17.980562 Avoid (Weak Fundamentals, Relative to Peers)
+     ASTAR.NS                    NaN    Small Cap         42.3         17.548596 Avoid (Weak Fundamentals, Relative to Peers)
+ATLASCYCLE.NS      Consumer Cyclical    Small Cap         42.3         17.548596 Avoid (Weak Fundamentals, Relative to Peers)
+   BALAJEE.NS      Consumer Cyclical    Small Cap         42.3         17.548596 Avoid (Weak Fundamentals, Relative to Peers)
+  BOHRAIND.NS        Basic Materials    Small Cap         42.3         17.548596 Avoid (Weak Fundamentals, Relative to Peers)
+BALAJITELE.NS Communication Services    Small Cap         42.2         17.224622 Avoid (Weak Fundamentals, Relative to Peers)
+     ABLBL.NS      Consumer Cyclical    Small Cap         42.2         17.224622 Avoid (Weak Fundamentals, Relative to Peers)
+   BAJAJST.NS                    NaN    Small Cap         42.1         17.008639 Avoid (Weak Fundamentals, Relative to Peers)
+EASEMYTRIP.NS      Consumer Cyclical    Small Cap         42.1         17.008639 Avoid (Weak Fundamentals, Relative to Peers)
+CARBORUNIV.NS            Industrials    Small Cap         42.0         16.738661 Avoid (Weak Fundamentals, Relative to Peers)
+GLOSTERLTD.NS      Consumer Cyclical    Small Cap         42.0         16.738661 Avoid (Weak Fundamentals, Relative to Peers)
+ GRAVISSHO.NS                    NaN    Small Cap         42.0         16.738661 Avoid (Weak Fundamentals, Relative to Peers)
+    AKSHAR.NS      Consumer Cyclical    Small Cap         41.9         16.468683 Avoid (Weak Fundamentals, Relative to Peers)
+     DSFCL.NS        Basic Materials    Small Cap         41.9         16.468683 Avoid (Weak Fundamentals, Relative to Peers)
+   HGINFRA.NS            Industrials    Small Cap         41.7         16.252700 Avoid (Weak Fundamentals, Relative to Peers)
+     CCHHL.NS      Consumer Cyclical    Small Cap         41.7         16.252700 Avoid (Weak Fundamentals, Relative to Peers)
+  GREENLAM.NS      Consumer Cyclical    Small Cap         41.6         16.036717 Avoid (Weak Fundamentals, Relative to Peers)
+  BEDMUTHA.NS        Basic Materials    Small Cap         41.6         16.036717 Avoid (Weak Fundamentals, Relative to Peers)
+  COMFINTE.NS                    NaN    Small Cap         41.5         15.820734 Avoid (Weak Fundamentals, Relative to Peers)
+ AYMSYNTEX.NS      Consumer Cyclical    Small Cap         41.5         15.820734 Avoid (Weak Fundamentals, Relative to Peers)
+BAJAJFINSV.NS     Financial Services    Large Cap         41.2         15.658747 Avoid (Weak Fundamentals, Relative to Peers)
+ANTGRAPHIC.NS      Consumer Cyclical    Small Cap         41.0         15.496760 Avoid (Weak Fundamentals, Relative to Peers)
+     AMAGI.NS             Technology    Small Cap         41.0         15.496760 Avoid (Weak Fundamentals, Relative to Peers)
+       HGS.NS            Industrials    Small Cap         40.5         15.118790 Avoid (Weak Fundamentals, Relative to Peers)
+  HEMIPROP.NS            Real Estate    Small Cap         40.5         15.118790 Avoid (Weak Fundamentals, Relative to Peers)
+    DCMSIL.NS            Industrials    Small Cap         40.5         15.118790 Avoid (Weak Fundamentals, Relative to Peers)
+    AARNAV.NS                    NaN    Small Cap         40.5         15.118790 Avoid (Weak Fundamentals, Relative to Peers)
+BALRAMCHIN.NS     Consumer Defensive    Small Cap         40.5         15.118790 Avoid (Weak Fundamentals, Relative to Peers)
+     BASML.NS      Consumer Cyclical    Small Cap         40.2         14.794816 Avoid (Weak Fundamentals, Relative to Peers)
+      GICL.NS            Industrials    Small Cap         40.1         14.632829 Avoid (Weak Fundamentals, Relative to Peers)
+BNAGROCHEM.NS                    NaN    Small Cap         40.1         14.632829 Avoid (Weak Fundamentals, Relative to Peers)
+   ASTERDM.NS             Healthcare      Mid Cap         39.5         14.416847 Avoid (Weak Fundamentals, Relative to Peers)
+  FIRSTCRY.NS      Consumer Cyclical    Small Cap         39.5         14.416847 Avoid (Weak Fundamentals, Relative to Peers)
+  CLEANMAX.NS              Utilities    Small Cap         39.4         14.254860 Avoid (Weak Fundamentals, Relative to Peers)
+   ARCHIES.NS      Consumer Cyclical    Small Cap         39.0         14.092873 Avoid (Weak Fundamentals, Relative to Peers)
+ARIHANTSUP.NS            Real Estate    Small Cap         39.0         14.092873 Avoid (Weak Fundamentals, Relative to Peers)
+ASIANTILES.NS            Industrials    Small Cap         38.9         13.876890 Avoid (Weak Fundamentals, Relative to Peers)
+     GOKUL.NS     Consumer Defensive    Small Cap         38.9         13.876890 Avoid (Weak Fundamentals, Relative to Peers)
+     DHRUV.NS            Industrials    Small Cap         38.6         13.714903 Avoid (Weak Fundamentals, Relative to Peers)
+  ANIKINDS.NS     Consumer Defensive    Small Cap         38.5         13.606911 Avoid (Weak Fundamentals, Relative to Peers)
+     AMBER.NS      Consumer Cyclical      Mid Cap         38.3         13.498920 Avoid (Weak Fundamentals, Relative to Peers)
+      BVCL.NS        Basic Materials    Small Cap         38.2         13.336933 Avoid (Weak Fundamentals, Relative to Peers)
+  DECCANCE.NS        Basic Materials    Small Cap         38.2         13.336933 Avoid (Weak Fundamentals, Relative to Peers)
+CREATIVEYE.NS Communication Services    Small Cap         38.0         13.174946 Avoid (Weak Fundamentals, Relative to Peers)
+ARVINDFASN.NS      Consumer Cyclical    Small Cap         37.7         12.904968 Avoid (Weak Fundamentals, Relative to Peers)
+       GSS.NS             Technology    Small Cap         37.7         12.904968 Avoid (Weak Fundamentals, Relative to Peers)
+CEREBRAINT.NS            Industrials    Small Cap         37.7         12.904968 Avoid (Weak Fundamentals, Relative to Peers)
+      DTIL.NS     Consumer Defensive    Small Cap         37.7         12.904968 Avoid (Weak Fundamentals, Relative to Peers)
+    FINOPB.NS     Financial Services    Small Cap         37.4         12.526998 Avoid (Weak Fundamentals, Relative to Peers)
+ BIRLAPREC.NS                    NaN    Small Cap         37.4         12.526998 Avoid (Weak Fundamentals, Relative to Peers)
+DAMODARIND.NS      Consumer Cyclical    Small Cap         37.4         12.526998 Avoid (Weak Fundamentals, Relative to Peers)
+     EMBDL.NS            Real Estate    Small Cap         37.2         12.311015 Avoid (Weak Fundamentals, Relative to Peers)
+    BEEKAY.NS                    NaN    Small Cap         36.9         12.203024 Avoid (Weak Fundamentals, Relative to Peers)
+FLUOROCHEM.NS        Basic Materials      Mid Cap         36.6         12.041037 Avoid (Weak Fundamentals, Relative to Peers)
+  ABANSENT.NS                    NaN    Small Cap         36.6         12.041037 Avoid (Weak Fundamentals, Relative to Peers)
+   HLEGLAS.NS            Industrials    Small Cap         36.5         11.879050 Avoid (Weak Fundamentals, Relative to Peers)
+HIMATSEIDE.NS      Consumer Cyclical    Small Cap         36.4         11.771058 Avoid (Weak Fundamentals, Relative to Peers)
+      APCL.NS        Basic Materials    Small Cap         36.3         11.609071 Avoid (Weak Fundamentals, Relative to Peers)
+      ABDL.NS     Consumer Defensive    Small Cap         36.3         11.609071 Avoid (Weak Fundamentals, Relative to Peers)
+CAMLINFINE.NS        Basic Materials    Small Cap         36.1         11.393089 Avoid (Weak Fundamentals, Relative to Peers)
+ BLUESTONE.NS      Consumer Cyclical    Small Cap         36.1         11.393089 Avoid (Weak Fundamentals, Relative to Peers)
+  CAPTRUST.NS     Financial Services    Small Cap         36.0         11.231102 Avoid (Weak Fundamentals, Relative to Peers)
+    HIRECT.NS            Industrials    Small Cap         35.9         11.123110 Avoid (Weak Fundamentals, Relative to Peers)
+    BNALTD.NS                    NaN    Small Cap         35.7         11.015119 Avoid (Weak Fundamentals, Relative to Peers)
+DREDGECORP.NS            Industrials    Small Cap         35.5         10.853132 Avoid (Weak Fundamentals, Relative to Peers)
+      GTPL.NS Communication Services    Small Cap         35.5         10.853132 Avoid (Weak Fundamentals, Relative to Peers)
+ABMINTLLTD.NS        Basic Materials    Small Cap         35.2         10.691145 Avoid (Weak Fundamentals, Relative to Peers)
+ CELEBRITY.NS      Consumer Cyclical    Small Cap         35.0         10.313175 Avoid (Weak Fundamentals, Relative to Peers)
+    AGSTRA.NS             Technology    Small Cap         35.0         10.313175 Avoid (Weak Fundamentals, Relative to Peers)
+ ELECTHERM.NS        Basic Materials    Small Cap         35.0         10.313175 Avoid (Weak Fundamentals, Relative to Peers)
+   HERANBA.NS        Basic Materials    Small Cap         35.0         10.313175 Avoid (Weak Fundamentals, Relative to Peers)
+       ACL.NS        Basic Materials    Small Cap         35.0         10.313175 Avoid (Weak Fundamentals, Relative to Peers)
+  COMPINFO.NS             Technology    Small Cap         35.0         10.313175 Avoid (Weak Fundamentals, Relative to Peers)
+ AXISCADES.NS            Industrials    Small Cap         34.9          9.935205 Avoid (Weak Fundamentals, Relative to Peers)
+    HATSUN.NS     Consumer Defensive    Small Cap         34.8          9.827214 Avoid (Weak Fundamentals, Relative to Peers)
+     GSLSU.NS        Basic Materials    Small Cap         34.6          9.665227 Avoid (Weak Fundamentals, Relative to Peers)
+  ALLCARGO.NS            Industrials    Small Cap         34.6          9.665227 Avoid (Weak Fundamentals, Relative to Peers)
+      BRNL.NS            Industrials    Small Cap         34.4          9.503240 Avoid (Weak Fundamentals, Relative to Peers)
+       BPL.NS             Technology    Small Cap         34.2          9.395248 Avoid (Weak Fundamentals, Relative to Peers)
+      BLAL.NS     Financial Services    Small Cap         34.1          9.233261 Avoid (Weak Fundamentals, Relative to Peers)
+GMRAIRPORT.NS            Industrials    Large Cap         34.1          9.233261 Avoid (Weak Fundamentals, Relative to Peers)
+AROGRANITE.NS            Industrials    Small Cap         33.8          9.071274 Avoid (Weak Fundamentals, Relative to Peers)
+      GLFL.NS     Financial Services    Small Cap         33.5          8.963283 Avoid (Weak Fundamentals, Relative to Peers)
+   AERONEU.NS      Consumer Cyclical    Small Cap         33.2          8.801296 Avoid (Weak Fundamentals, Relative to Peers)
+BHARATFORG.NS      Consumer Cyclical    Large Cap         33.2          8.801296 Avoid (Weak Fundamentals, Relative to Peers)
+ DIAMONDYD.NS     Consumer Defensive    Small Cap         32.8          8.639309 Avoid (Weak Fundamentals, Relative to Peers)
+  DBREALTY.NS            Real Estate    Small Cap         32.6          8.369330 Avoid (Weak Fundamentals, Relative to Peers)
+     ABFRL.NS      Consumer Cyclical    Small Cap         32.6          8.369330 Avoid (Weak Fundamentals, Relative to Peers)
+ BALPHARMA.NS             Healthcare    Small Cap         32.6          8.369330 Avoid (Weak Fundamentals, Relative to Peers)
+        BI.NS                    NaN    Small Cap         32.6          8.369330 Avoid (Weak Fundamentals, Relative to Peers)
+   HEADSUP.NS      Consumer Cyclical    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+    ANURAS.NS        Basic Materials    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+GLOBALVECT.NS            Industrials    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+      BTTL.NS      Consumer Cyclical    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+      BEML.NS            Industrials    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+   BIRLANU.NS            Industrials    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+  ALPHAGEO.NS                 Energy    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+  ARENTERP.NS        Basic Materials    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+    GVKPIL.NS              Utilities    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+       FEL.NS      Consumer Cyclical    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+    FELDVR.NS      Consumer Cyclical    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+21STCENMGM.NS     Financial Services    Small Cap         32.5          7.505400 Avoid (Weak Fundamentals, Relative to Peers)
+   AIROLAM.NS      Consumer Cyclical    Small Cap         32.3          6.803456 Avoid (Weak Fundamentals, Relative to Peers)
+     GOKEX.NS      Consumer Cyclical    Small Cap         32.2          6.695464 Avoid (Weak Fundamentals, Relative to Peers)
+   GLOBALE.NS      Consumer Cyclical    Small Cap         31.8          6.479482 Avoid (Weak Fundamentals, Relative to Peers)
+    DAICHI.NS                    NaN    Small Cap         31.8          6.479482 Avoid (Weak Fundamentals, Relative to Peers)
+ BATAINDIA.NS      Consumer Cyclical    Small Cap         31.8          6.479482 Avoid (Weak Fundamentals, Relative to Peers)
+    EXICOM.NS            Industrials    Small Cap         31.6          6.263499 Avoid (Weak Fundamentals, Relative to Peers)
+  DECNGOLD.NS                    NaN    Small Cap         31.5          6.155508 Avoid (Weak Fundamentals, Relative to Peers)
+CHEMPLASTS.NS        Basic Materials    Small Cap         31.4          5.993521 Avoid (Weak Fundamentals, Relative to Peers)
+       BIL.NS      Consumer Cyclical    Small Cap         31.4          5.993521 Avoid (Weak Fundamentals, Relative to Peers)
+    ASTRON.NS        Basic Materials    Small Cap         31.2          5.723542 Avoid (Weak Fundamentals, Relative to Peers)
+    ARKADE.NS            Real Estate    Small Cap         31.2          5.723542 Avoid (Weak Fundamentals, Relative to Peers)
+  BATLIBOI.NS            Industrials    Small Cap         31.2          5.723542 Avoid (Weak Fundamentals, Relative to Peers)
+       HGM.NS             Technology    Small Cap         31.0          5.507559 Avoid (Weak Fundamentals, Relative to Peers)
+BOSCH-HCIL.NS      Consumer Cyclical    Small Cap         30.9          5.345572 Avoid (Weak Fundamentals, Relative to Peers)
+   HEALTHX.NS             Healthcare    Small Cap         30.9          5.345572 Avoid (Weak Fundamentals, Relative to Peers)
+   EQUIPPP.NS             Technology    Small Cap         30.6          5.183585 Avoid (Weak Fundamentals, Relative to Peers)
+    ABMKNO.NS                    NaN    Small Cap         30.5          5.075594 Avoid (Weak Fundamentals, Relative to Peers)
+ ANDHRAPAP.NS        Basic Materials    Small Cap         30.3          4.913607 Avoid (Weak Fundamentals, Relative to Peers)
+    AHLADA.NS            Industrials    Small Cap         30.3          4.913607 Avoid (Weak Fundamentals, Relative to Peers)
+      ENIL.NS Communication Services    Small Cap         30.2          4.751620 Avoid (Weak Fundamentals, Relative to Peers)
+GREENPANEL.NS        Basic Materials    Small Cap         29.8          4.535637 Avoid (Weak Fundamentals, Relative to Peers)
+       AKG.NS            Industrials    Small Cap         29.8          4.535637 Avoid (Weak Fundamentals, Relative to Peers)
+  DELPHIFX.NS     Financial Services    Small Cap         29.8          4.535637 Avoid (Weak Fundamentals, Relative to Peers)
+HINDWAREAP.NS      Consumer Cyclical    Small Cap         29.6          4.319654 Avoid (Weak Fundamentals, Relative to Peers)
+ASIANHOTNR.NS      Consumer Cyclical    Small Cap         28.9          4.211663 Avoid (Weak Fundamentals, Relative to Peers)
+      FACT.NS        Basic Materials      Mid Cap         28.8          4.103672 Avoid (Weak Fundamentals, Relative to Peers)
+    HLVLTD.NS      Consumer Cyclical    Small Cap         28.7          3.941685 Avoid (Weak Fundamentals, Relative to Peers)
+    BALAXI.NS             Healthcare    Small Cap         28.7          3.941685 Avoid (Weak Fundamentals, Relative to Peers)
+  CORDELIA.NS            Industrials    Small Cap         28.2          3.779698 Avoid (Weak Fundamentals, Relative to Peers)
+  ESSENTIA.NS     Consumer Defensive    Small Cap         27.6          3.671706 Avoid (Weak Fundamentals, Relative to Peers)
+     ABREL.NS            Real Estate    Small Cap         27.3          3.563715 Avoid (Weak Fundamentals, Relative to Peers)
+    DANGEE.NS      Consumer Cyclical    Small Cap         26.7          3.455724 Avoid (Weak Fundamentals, Relative to Peers)
+       BSL.NS      Consumer Cyclical    Small Cap         26.4          3.347732 Avoid (Weak Fundamentals, Relative to Peers)
+       ADL.NS      Consumer Cyclical    Small Cap         26.3          3.239741 Avoid (Weak Fundamentals, Relative to Peers)
+ BLKASHYAP.NS            Industrials    Small Cap         25.6          3.131749 Avoid (Weak Fundamentals, Relative to Peers)
+       CTE.NS             Technology    Small Cap         25.0          3.023758 Avoid (Weak Fundamentals, Relative to Peers)
+     BANKA.NS            Industrials    Small Cap         24.6          2.915767 Avoid (Weak Fundamentals, Relative to Peers)
+    BIOCON.NS             Healthcare      Mid Cap         24.3          2.807775 Avoid (Weak Fundamentals, Relative to Peers)
+ DELHIVERY.NS            Industrials      Mid Cap         23.9          2.699784 Avoid (Weak Fundamentals, Relative to Peers)
+  GOLDTECH.NS             Technology    Small Cap         22.9          2.591793 Avoid (Weak Fundamentals, Relative to Peers)
+    CLCIND.NS      Consumer Cyclical    Small Cap         22.5          2.105832 Avoid (Weak Fundamentals, Relative to Peers)
+ ELGIRUBCO.NS      Consumer Cyclical    Small Cap         22.5          2.105832 Avoid (Weak Fundamentals, Relative to Peers)
+   HAVISHA.NS      Consumer Cyclical    Small Cap         22.5          2.105832 Avoid (Weak Fundamentals, Relative to Peers)
+  EASTSILK.NS      Consumer Cyclical    Small Cap         22.5          2.105832 Avoid (Weak Fundamentals, Relative to Peers)
+ GTECJAINX.NS     Consumer Defensive    Small Cap         22.5          2.105832 Avoid (Weak Fundamentals, Relative to Peers)
+  GRANDOAK.NS                    NaN    Small Cap         22.5          2.105832 Avoid (Weak Fundamentals, Relative to Peers)
+DELTAMAGNT.NS      Consumer Cyclical    Small Cap         22.5          2.105832 Avoid (Weak Fundamentals, Relative to Peers)
+   CENTRUM.NS     Financial Services    Small Cap         22.5          2.105832 Avoid (Weak Fundamentals, Relative to Peers)
+     AKASH.NS            Industrials    Small Cap         21.7          1.619870 Avoid (Weak Fundamentals, Relative to Peers)
+ FILATFASH.NS      Consumer Cyclical    Small Cap         21.1          1.511879 Avoid (Weak Fundamentals, Relative to Peers)
+    DCMNVL.NS      Consumer Cyclical    Small Cap         20.5          1.403888 Avoid (Weak Fundamentals, Relative to Peers)
+DYNAMATECH.NS      Consumer Cyclical    Small Cap         19.9          1.295896 Avoid (Weak Fundamentals, Relative to Peers)
+   BIGBLOC.NS            Industrials    Small Cap         18.7          1.187905 Avoid (Weak Fundamentals, Relative to Peers)
+  GEMAROMA.NS        Basic Materials    Small Cap         18.1          1.079914 Avoid (Weak Fundamentals, Relative to Peers)
+  ATLANTAA.NS            Industrials    Small Cap         17.7          0.971922 Avoid (Weak Fundamentals, Relative to Peers)
+ GODAVARIB.NS        Basic Materials    Small Cap         15.6          0.863931 Avoid (Weak Fundamentals, Relative to Peers)
+ BCONCEPTS.NS      Consumer Cyclical    Small Cap         15.2          0.755940 Avoid (Weak Fundamentals, Relative to Peers)
+    FUSION.NS     Financial Services    Small Cap         14.0          0.647948 Avoid (Weak Fundamentals, Relative to Peers)
+     EPACK.NS      Consumer Cyclical    Small Cap         13.8          0.539957 Avoid (Weak Fundamentals, Relative to Peers)
+   AHLEAST.NS      Consumer Cyclical    Small Cap         12.5          0.431965 Avoid (Weak Fundamentals, Relative to Peers)
+ ARTNIRMAN.NS            Real Estate    Small Cap         11.3          0.323974 Avoid (Weak Fundamentals, Relative to Peers)
+       HCG.NS             Healthcare    Small Cap         10.9          0.215983 Avoid (Weak Fundamentals, Relative to Peers)
+ DGCONTENT.NS Communication Services    Small Cap          5.3          0.107991 Avoid (Weak Fundamentals, Relative to Peers)
+
+=== RECOMMENDATION DISTRIBUTION ===
+recommendation
+Hold / Neutral                                  279
+Avoid (Weak Fundamentals, Relative to Peers)    231
+Accumulate                                      229
+Strong Buy (Long-Term)                          187
+Name: count, dtype: int64
+
+=== SCORE BREAKDOWN (top 5) ===
+       symbol  valuation_score  profitability_score  financial_health_score  growth_score  margin_score  total_score
+    GARUDA.NS             25.0                 25.0                    19.7          20.0          10.0         99.7
+ HBLENGINE.NS             25.0                 25.0                    19.7          20.0          10.0         99.7
+       BLS.NS             25.0                 25.0                    18.5          20.0          10.0         98.5
+CASTROLIND.NS             25.0                 25.0                    19.7          20.0           8.5         98.3
+     DEVIT.NS             25.0                 25.0                    17.2          20.0          10.0         97.2
+
+Saved to data/processed/long_term_scores.csv
+[16:36:15] SUCCESS: Recompute long-term fundamental scores
+[16:36:16] Morning report saved to C:\Users\91769\stock_ai_project\data\processed\morning_report_2026-08-07.txt
+[16:36:16] ============================================================
+[16:36:16] PIPELINE COMPLETE -- ALL STEPS SUCCEEDED
+[16:36:16] Log file: C:\Users\91769\stock_ai_project\logs\pipeline_2026-08-07_16-33-12.log
+[16:36:16] Morning report: C:\Users\91769\stock_ai_project\data\processed\morning_report_2026-08-07.txt
+[16:36:16] ============================================================

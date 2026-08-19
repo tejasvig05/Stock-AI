@@ -1,0 +1,19 @@
+============================================================
+DAILY MARKET ANALYSIS REPORT -- Friday, August 07, 2026
+============================================================
+
+DISCLAIMER: Educational/informational only. Not financial advice.
+Stock market investments are subject to market risk.
+
+TOP 10 LONG-TERM FUNDAMENTAL SCORES TODAY:
+       symbol            sector cap_category  total_score         recommendation
+    GARUDA.NS       Industrials    Small Cap         99.7 Strong Buy (Long-Term)
+ HBLENGINE.NS       Industrials    Small Cap         99.7 Strong Buy (Long-Term)
+       BLS.NS       Industrials    Small Cap         98.5 Strong Buy (Long-Term)
+CASTROLIND.NS            Energy    Small Cap         98.3 Strong Buy (Long-Term)
+      JSLL.NS        Healthcare    Small Cap         97.3 Strong Buy (Long-Term)
+     DEVIT.NS        Technology    Small Cap         97.2 Strong Buy (Long-Term)
+    KRONOX.NS   Basic Materials    Small Cap         97.2 Strong Buy (Long-Term)
+       IKS.NS        Healthcare      Mid Cap         96.2 Strong Buy (Long-Term)
+    BORANA.NS Consumer Cyclical    Small Cap         95.8 Strong Buy (Long-Term)
+   CEINSYS.NS       Industrials    Small Cap         94.7 Strong Buy (Long-Term)

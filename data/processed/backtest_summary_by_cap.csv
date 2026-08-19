@@ -1,0 +1,9 @@
+cap_category,type,total_return_pct,sharpe_ratio,max_drawdown_pct,win_rate_pct
+Large Cap,Buy & Hold,-2.44,-0.14,-22.5,49.47
+Large Cap,Strategy,-2.56,-0.39,-7.35,49.58
+Mid Cap,Buy & Hold,-2.88,0.01,-28.3,49.98
+Mid Cap,Strategy,-5.41,-0.28,-20.92,47.71
+Small Cap,Buy & Hold,-9.1,-0.19,-30.36,46.58
+Small Cap,Strategy,-7.68,-0.23,-22.3,45.48
+Unknown,Buy & Hold,33.19,2.17,-9.17,54.8
+Unknown,Strategy,2.26,1.07,-0.99,60.0
