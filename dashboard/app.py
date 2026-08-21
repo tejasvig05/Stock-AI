@@ -38,7 +38,12 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-st_autorefresh(interval=60 * 1000, key="stock_price_refresh")
+count = st_autorefresh(
+    interval=60 * 1000,
+    key="stock_price_refresh"
+)
+
+
 
 FEATURE_COLUMNS = [
     "SMA_20", "SMA_50", "EMA_20", "RSI_14",
