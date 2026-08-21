@@ -1,10 +1,5 @@
 # 📈 StockAI
 
-<p align="center">
-  <img src="https://shields.io" alt="GitHub stars">
-  <img src="https://shields.io" alt="GitHub forks">
-  <img src="https://shields.io" alt="License">
-</p>
 
 <p align="center">
   <!-- REPLACE THIS URL WITH A REPO BANNER IF YOU HAVE ONE, OR DELETE THIS LINE -->
