@@ -88,25 +88,22 @@ def get_stock_info(symbol: str) -> dict:
 
 
 
-def get_live_price(symbol: str):
+def get_live_price(symbol):
     try:
         ticker = yf.Ticker(symbol)
 
-        price = ticker.fast_info.get("last_price")
+        data = ticker.history(
+            period="1d",
+            interval="1m"
+        )
 
-        if price is not None:
-            return float(price)
-
-        df = ticker.history(period="1d", interval="1m")
-
-        if not df.empty:
-            return float(df["Close"].iloc[-1])
+        if not data.empty:
+            return float(data["Close"].iloc[-1])
 
         return None
 
     except Exception as e:
-        print(f"Could not fetch live price for {symbol}: {e}")
-        return None
+        print(f"Live price error for {symbol}: {e}")
 
 
 if __name__ == "__main__":
