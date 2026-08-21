@@ -534,6 +534,84 @@ with tab_charts:
 # TAB: LONG TERM DETAIL
 # ============================================================
 with tab_longterm:
+    # --- Sector peer comparison for the selected stock ---
+    st.markdown('<div class="section-header">🔬 Sector Peer Comparison</div>', unsafe_allow_html=True)
+
+    if long_term_scores is not None and lt_row is not None:
+        stock_sector = lt_row.get("sector")
+        peers_df = long_term_scores[
+            (long_term_scores["sector"] == stock_sector) &
+            (long_term_scores["symbol"] != selected_symbol)
+        ].sort_values("total_score", ascending=False).head(6)
+
+        if peers_df.empty:
+            st.info(f"No other stocks found in the '{stock_sector}' sector in the current watchlist.")
+        else:
+            pc1, pc2 = st.columns([1, 1])
+
+            with pc1:
+                st.caption(f"Top peers in **{stock_sector}**, ranked by fundamental score")
+                compare_cols = ["symbol", "cap_category", "trailingPE", "total_score", "recommendation"]
+                available = [c for c in compare_cols if c in peers_df.columns]
+                peer_display = peers_df[available].rename(columns={
+                    "symbol": "Symbol", "cap_category": "Cap", "trailingPE": "P/E",
+                    "total_score": "Score", "recommendation": "Recommendation",
+                })
+                st.dataframe(peer_display, use_container_width=True, hide_index=True)
+
+            with pc2:
+                st.caption(f"Fundamental score: {selected_symbol} vs. top peers")
+                compare_scores = pd.concat([
+                    pd.DataFrame([{"symbol": selected_symbol, "total_score": lt_row["total_score"]}]),
+                    peers_df[["symbol", "total_score"]],
+                ])
+                bar_fig = go.Figure()
+                colors = ["#a78bfa" if s == selected_symbol else "#38bdf8" for s in compare_scores["symbol"]]
+                bar_fig.add_trace(go.Bar(
+                    x=compare_scores["symbol"], y=compare_scores["total_score"],
+                    marker_color=colors,
+                ))
+                bar_fig.update_layout(
+                    template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                    height=320, margin=dict(t=10, b=10, l=10, r=10),
+                    yaxis_title="Fundamental Score",
+                )
+                st.plotly_chart(bar_fig, use_container_width=True)
+                st.caption(f"{selected_symbol} highlighted in purple")
+
+            # --- Normalized price performance vs top 3 peers ---
+            st.caption("Price performance (normalized to 0% at start of period) -- last 1 year")
+            top_peer_symbols = peers_df["symbol"].head(3).tolist()
+            perf_fig = go.Figure()
+
+            for sym, color in zip([selected_symbol] + top_peer_symbols,
+                                   ["#f472b6", "#38bdf8", "#4ade80", "#facc15"]):
+                try:
+                    if sym == selected_symbol:
+                        p_df = featured_df
+                    else:
+                        p_df, _ = load_stock_data(sym)
+                    normalized = (p_df["Close"] / p_df["Close"].iloc[0] - 1) * 100
+                    perf_fig.add_trace(go.Scatter(
+                        x=p_df["Date"], y=normalized, name=sym,
+                        line=dict(color=color, width=2.5 if sym == selected_symbol else 1.5),
+                    ))
+                except Exception:
+                    continue
+
+            perf_fig.update_layout(
+                template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                height=380, margin=dict(t=10, b=10, l=10, r=10),
+                yaxis_title="Return (%)",
+                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+            )
+            st.plotly_chart(perf_fig, use_container_width=True)
+    else:
+        st.info("Long-term scores not available yet -- run `python src/long_term_scorer.py`.")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # --- Full watchlist leaderboard ---
     if long_term_scores is not None:
         st.markdown('<div class="section-header">🏆 Watchlist Leaderboard</div>', unsafe_allow_html=True)
         display_cols = ["symbol", "sector", "cap_category", "total_score", "score_percentile", "recommendation"]
