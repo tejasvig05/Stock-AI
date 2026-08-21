@@ -15,6 +15,7 @@ import pandas as pd
 import numpy as np
 import joblib
 import shap
+from scipy.optimize import minimize
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -350,6 +351,83 @@ def get_shap_breakdown(explainer, model, latest_scaled, predicted_class, feature
     return df.sort_values("abs_value", ascending=False)
 
 
+@st.cache_data(ttl=3600)
+def build_returns_matrix(symbols: tuple, period: str = "1y") -> pd.DataFrame:
+    """
+    Builds a DataFrame of daily returns for multiple stocks, aligned by
+    date. This is the core input to Markowitz mean-variance optimization --
+    everything downstream (expected returns, covariance matrix) is derived
+    from this.
+    """
+    returns = {}
+    for sym in symbols:
+        try:
+            df, _ = load_stock_data(sym)
+            df = df.set_index("Date")
+            returns[sym] = df["daily_return"]
+        except Exception:
+            continue
+    returns_df = pd.DataFrame(returns).dropna()
+    return returns_df
+
+
+def portfolio_performance(weights, mean_returns, cov_matrix, trading_days=252):
+    """Annualized expected return and volatility for a given weight vector."""
+    port_return = np.sum(mean_returns * weights) * trading_days
+    port_vol = np.sqrt(np.dot(weights.T, np.dot(cov_matrix * trading_days, weights)))
+    return port_return, port_vol
+
+
+def negative_sharpe(weights, mean_returns, cov_matrix, risk_free_rate):
+    p_return, p_vol = portfolio_performance(weights, mean_returns, cov_matrix)
+    return -(p_return - risk_free_rate) / p_vol if p_vol > 0 else 0
+
+
+def portfolio_volatility(weights, mean_returns, cov_matrix):
+    return portfolio_performance(weights, mean_returns, cov_matrix)[1]
+
+
+def optimize_portfolio(mean_returns, cov_matrix, risk_free_rate=0.065, objective="max_sharpe"):
+    """
+    Solves for optimal weights using scipy's SLSQP optimizer -- the
+    standard approach for constrained mean-variance optimization.
+    Constraints: weights sum to 1 (fully invested), no shorting (0-100% per stock).
+    """
+    n = len(mean_returns)
+    args = (mean_returns, cov_matrix, risk_free_rate) if objective == "max_sharpe" else (mean_returns, cov_matrix)
+    constraints = ({"type": "eq", "fun": lambda w: np.sum(w) - 1})
+    bounds = tuple((0, 1) for _ in range(n))
+    initial_guess = np.array([1 / n] * n)
+
+    objective_fn = negative_sharpe if objective == "max_sharpe" else portfolio_volatility
+    result = minimize(objective_fn, initial_guess, args=args, method="SLSQP",
+                       bounds=bounds, constraints=constraints)
+    return result.x
+
+
+def compute_efficient_frontier(mean_returns, cov_matrix, n_points=40):
+    """Traces the efficient frontier: for a range of target returns, finds
+    the MINIMUM volatility portfolio achieving that return. This is the
+    classic Markowitz frontier curve."""
+    min_ret = mean_returns.min() * 252
+    max_ret = mean_returns.max() * 252
+    target_returns = np.linspace(min_ret, max_ret, n_points)
+
+    n = len(mean_returns)
+    frontier_vols = []
+    for target in target_returns:
+        constraints = (
+            {"type": "eq", "fun": lambda w: np.sum(w) - 1},
+            {"type": "eq", "fun": lambda w, t=target: portfolio_performance(w, mean_returns, cov_matrix)[0] - t},
+        )
+        bounds = tuple((0, 1) for _ in range(n))
+        result = minimize(portfolio_volatility, [1 / n] * n, args=(mean_returns, cov_matrix),
+                           method="SLSQP", bounds=bounds, constraints=constraints)
+        frontier_vols.append(result.fun if result.success else np.nan)
+
+    return target_returns, np.array(frontier_vols)
+
+
 def get_full_signal_for_symbol(symbol, model, scaler, reg_model, reg_scaler, long_term_scores_df):
     """Bundles everything the portfolio tab needs for one holding: current
     price, short-term signal, expected return, and long-term score. Reuses
@@ -481,8 +559,9 @@ expected_return = get_expected_return(featured_df, reg_model, reg_scaler)
 long_term_scores = load_long_term_scores()
 lt_row = get_long_term_score(long_term_scores, selected_symbol)
 
-tab_overview, tab_charts, tab_longterm, tab_portfolio, tab_data = st.tabs(
-    ["🎯 Signals", "📊 Charts & Indicators", "💰 Long-Term Score", "💼 Portfolio", "📋 Raw Data"]
+tab_overview, tab_charts, tab_longterm, tab_portfolio, tab_optimizer, tab_data = st.tabs(
+    ["🎯 Signals", "📊 Charts & Indicators", "💰 Long-Term Score", "💼 Portfolio",
+     "⚖️ Portfolio Optimizer", "📋 Raw Data"]
 )
 
 # ============================================================
@@ -794,6 +873,141 @@ with tab_portfolio:
             "model outputs used elsewhere in this dashboard -- see the Signals tab for "
             "each stock's full detail and explainability."
         )
+
+# ============================================================
+# TAB: PORTFOLIO OPTIMIZER
+# ============================================================
+with tab_optimizer:
+    st.markdown('<div class="section-header">⚖️ Modern Portfolio Theory Optimizer</div>', unsafe_allow_html=True)
+    st.caption(
+        "Given a set of stocks, this computes the mathematically optimal allocation "
+        "using Markowitz mean-variance optimization -- the same core technique used "
+        "in real institutional asset allocation. Not a prediction; a risk/return "
+        "trade-off calculation based on historical volatility and correlation."
+    )
+
+    default_selection = WATCHLIST[:6] if len(WATCHLIST) >= 6 else WATCHLIST
+    opt_symbols = st.multiselect(
+        "Select stocks to optimize across (3-12 recommended)",
+        WATCHLIST, default=default_selection, max_selections=15,
+    )
+
+    risk_free = st.slider("Risk-free rate (annual %, e.g. Indian G-Sec yield)", 0.0, 12.0, 6.5, 0.1) / 100
+
+    if len(opt_symbols) < 3:
+        st.warning("Select at least 3 stocks to run optimization.")
+    elif st.button("🔮 Run Optimization", type="primary"):
+        with st.spinner("Fetching historical returns and solving for optimal weights..."):
+            returns_df = build_returns_matrix(tuple(sorted(opt_symbols)))
+
+            if returns_df.shape[1] < 3 or len(returns_df) < 30:
+                st.error("Not enough overlapping historical data for these stocks. Try different symbols.")
+            else:
+                mean_returns = returns_df.mean()
+                cov_matrix = returns_df.cov()
+
+                max_sharpe_w = optimize_portfolio(mean_returns, cov_matrix, risk_free, "max_sharpe")
+                min_vol_w = optimize_portfolio(mean_returns, cov_matrix, risk_free, "min_vol")
+                equal_w = np.array([1 / len(returns_df.columns)] * len(returns_df.columns))
+
+                ms_ret, ms_vol = portfolio_performance(max_sharpe_w, mean_returns, cov_matrix)
+                mv_ret, mv_vol = portfolio_performance(min_vol_w, mean_returns, cov_matrix)
+                eq_ret, eq_vol = portfolio_performance(equal_w, mean_returns, cov_matrix)
+
+                ms_sharpe = (ms_ret - risk_free) / ms_vol
+                mv_sharpe = (mv_ret - risk_free) / mv_vol
+                eq_sharpe = (eq_ret - risk_free) / eq_vol
+
+                # --- Results cards ---
+                r1, r2, r3 = st.columns(3)
+                with r1:
+                    st.markdown(
+                        f'<div class="signal-card"><b style="color:#4ade80;">🏆 Max Sharpe Portfolio</b>'
+                        f'<div style="margin-top:10px; font-size:1.6rem; font-weight:800; font-family:JetBrains Mono, monospace;">'
+                        f'{ms_ret*100:.1f}%<span style="font-size:0.9rem; color:#8b93a7;"> return</span></div>'
+                        f'<div style="color:#8b93a7;">Volatility: {ms_vol*100:.1f}% &nbsp;|&nbsp; Sharpe: {ms_sharpe:.2f}</div></div>',
+                        unsafe_allow_html=True,
+                    )
+                with r2:
+                    st.markdown(
+                        f'<div class="signal-card"><b style="color:#38bdf8;">🛡️ Min Volatility Portfolio</b>'
+                        f'<div style="margin-top:10px; font-size:1.6rem; font-weight:800; font-family:JetBrains Mono, monospace;">'
+                        f'{mv_ret*100:.1f}%<span style="font-size:0.9rem; color:#8b93a7;"> return</span></div>'
+                        f'<div style="color:#8b93a7;">Volatility: {mv_vol*100:.1f}% &nbsp;|&nbsp; Sharpe: {mv_sharpe:.2f}</div></div>',
+                        unsafe_allow_html=True,
+                    )
+                with r3:
+                    st.markdown(
+                        f'<div class="signal-card"><b style="color:#facc15;">⚪ Equal Weight (Baseline)</b>'
+                        f'<div style="margin-top:10px; font-size:1.6rem; font-weight:800; font-family:JetBrains Mono, monospace;">'
+                        f'{eq_ret*100:.1f}%<span style="font-size:0.9rem; color:#8b93a7;"> return</span></div>'
+                        f'<div style="color:#8b93a7;">Volatility: {eq_vol*100:.1f}% &nbsp;|&nbsp; Sharpe: {eq_sharpe:.2f}</div></div>',
+                        unsafe_allow_html=True,
+                    )
+
+                st.markdown("<br>", unsafe_allow_html=True)
+
+                # --- Efficient frontier chart ---
+                oc1, oc2 = st.columns([3, 2])
+                with oc1:
+                    with st.spinner("Tracing efficient frontier..."):
+                        frontier_returns, frontier_vols = compute_efficient_frontier(mean_returns, cov_matrix)
+
+                    frontier_fig = go.Figure()
+                    frontier_fig.add_trace(go.Scatter(
+                        x=frontier_vols * 100, y=frontier_returns * 100, mode="lines",
+                        name="Efficient Frontier", line=dict(color="#a78bfa", width=2),
+                    ))
+                    frontier_fig.add_trace(go.Scatter(
+                        x=[ms_vol * 100], y=[ms_ret * 100], mode="markers", name="Max Sharpe",
+                        marker=dict(color="#4ade80", size=14, symbol="star"),
+                    ))
+                    frontier_fig.add_trace(go.Scatter(
+                        x=[mv_vol * 100], y=[mv_ret * 100], mode="markers", name="Min Volatility",
+                        marker=dict(color="#38bdf8", size=14, symbol="diamond"),
+                    ))
+                    frontier_fig.add_trace(go.Scatter(
+                        x=[eq_vol * 100], y=[eq_ret * 100], mode="markers", name="Equal Weight",
+                        marker=dict(color="#facc15", size=12, symbol="circle"),
+                    ))
+                    frontier_fig.update_layout(
+                        template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                        height=420, margin=dict(t=20, b=10, l=10, r=10),
+                        xaxis_title="Annualized Volatility (Risk) %",
+                        yaxis_title="Annualized Expected Return %",
+                        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+                    )
+                    st.plotly_chart(frontier_fig, use_container_width=True)
+                    st.caption(
+                        "Every point on the purple curve is the lowest-risk portfolio achievable for "
+                        "that return level. Portfolios below/right of the curve are sub-optimal -- "
+                        "you could get more return for the same risk, or less risk for the same return."
+                    )
+
+                with oc2:
+                    st.markdown("**Recommended Allocation (Max Sharpe)**")
+                    alloc_df = pd.DataFrame({
+                        "Stock": returns_df.columns,
+                        "Weight": (max_sharpe_w * 100).round(1),
+                    }).sort_values("Weight", ascending=False)
+                    alloc_df = alloc_df[alloc_df["Weight"] > 0.1]
+
+                    alloc_fig = go.Figure(data=[go.Pie(
+                        labels=alloc_df["Stock"], values=alloc_df["Weight"], hole=0.5,
+                        marker=dict(colors=["#4ade80", "#38bdf8", "#a78bfa", "#f472b6", "#facc15", "#fb923c"]),
+                    )])
+                    alloc_fig.update_layout(
+                        template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
+                        height=320, margin=dict(t=10, b=10, l=10, r=10), showlegend=True,
+                    )
+                    st.plotly_chart(alloc_fig, use_container_width=True)
+                    st.dataframe(alloc_df, use_container_width=True, hide_index=True)
+
+    st.caption(
+        "⚠️ Based on trailing 1-year historical returns and volatility. Past correlation "
+        "and volatility are not guaranteed to persist -- this is a risk/return optimization "
+        "tool, not a return forecast."
+    )
 
 # ============================================================
 # TAB: RAW DATA
