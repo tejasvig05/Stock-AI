@@ -1,11 +1,5 @@
 # 📈 StockAI
 
-
-<p align="center">
-  <!-- REPLACE THIS URL WITH A REPO BANNER IF YOU HAVE ONE, OR DELETE THIS LINE -->
-  <img src="https://githubusercontent.com" width="100%">
-</p>
-
 ### 🤖 AI-Powered Stock Market Analysis Platform
 
 **StockAI** is a next-generation stock market analytics engine that unifies **machine learning**, **technical indicators**, **fundamental analysis**, and **algorithmic backtesting** into one fluid, interactive dashboard.
