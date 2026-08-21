@@ -24,7 +24,7 @@ The application simplifies financial research by centralizing complex market dat
 
 ## 🚀 Live Demo
 
-### 🔗 **[Launch the Live Dashboard](https://streamlit.app)**
+### 🔗 **[Launch the Live Dashboard](https://stock-ai-tejasvig05.streamlit.app/)**
 
 <p align="center">
   <!-- TIP: Record a 5-second GIF of your Streamlit app running and drop the image file path here! -->
