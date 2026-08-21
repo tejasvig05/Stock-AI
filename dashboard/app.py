@@ -387,16 +387,21 @@ def portfolio_volatility(weights, mean_returns, cov_matrix):
     return portfolio_performance(weights, mean_returns, cov_matrix)[1]
 
 
-def optimize_portfolio(mean_returns, cov_matrix, risk_free_rate=0.065, objective="max_sharpe"):
+def optimize_portfolio(mean_returns, cov_matrix, risk_free_rate=0.065, objective="max_sharpe", max_weight=1.0):
     """
     Solves for optimal weights using scipy's SLSQP optimizer -- the
     standard approach for constrained mean-variance optimization.
-    Constraints: weights sum to 1 (fully invested), no shorting (0-100% per stock).
+    Constraints: weights sum to 1 (fully invested), no shorting,
+    and optionally a max weight per stock -- unconstrained mean-variance
+    optimization is well known to produce unstable, over-concentrated
+    "corner" portfolios when using sample covariance from limited history
+    (the "Markowitz optimization enigma," Michaud 1989); capping max
+    position size is the standard practical fix.
     """
     n = len(mean_returns)
     args = (mean_returns, cov_matrix, risk_free_rate) if objective == "max_sharpe" else (mean_returns, cov_matrix)
     constraints = ({"type": "eq", "fun": lambda w: np.sum(w) - 1})
-    bounds = tuple((0, 1) for _ in range(n))
+    bounds = tuple((0, max_weight) for _ in range(n))
     initial_guess = np.array([1 / n] * n)
 
     objective_fn = negative_sharpe if objective == "max_sharpe" else portfolio_volatility
@@ -893,9 +898,21 @@ with tab_optimizer:
     )
 
     risk_free = st.slider("Risk-free rate (annual %, e.g. Indian G-Sec yield)", 0.0, 12.0, 6.5, 0.1) / 100
+    max_weight_pct = st.slider(
+        "Max allocation per stock (%)", 20, 100, 35, 5,
+        help="Unconstrained optimization tends to concentrate heavily in 1-2 stocks "
+             "(a known instability in mean-variance optimization). Capping single-stock "
+             "exposure produces more realistic, diversified portfolios.",
+    )
+    max_weight = max_weight_pct / 100
 
     if len(opt_symbols) < 3:
         st.warning("Select at least 3 stocks to run optimization.")
+    elif max_weight * len(opt_symbols) < 1.0:
+        st.error(
+            f"Infeasible: {len(opt_symbols)} stocks capped at {max_weight_pct}% each can only "
+            f"reach {max_weight * len(opt_symbols) * 100:.0f}% total. Raise the cap or add more stocks."
+        )
     elif st.button("🔮 Run Optimization", type="primary"):
         with st.spinner("Fetching historical returns and solving for optimal weights..."):
             returns_df = build_returns_matrix(tuple(sorted(opt_symbols)))
@@ -906,8 +923,8 @@ with tab_optimizer:
                 mean_returns = returns_df.mean()
                 cov_matrix = returns_df.cov()
 
-                max_sharpe_w = optimize_portfolio(mean_returns, cov_matrix, risk_free, "max_sharpe")
-                min_vol_w = optimize_portfolio(mean_returns, cov_matrix, risk_free, "min_vol")
+                max_sharpe_w = optimize_portfolio(mean_returns, cov_matrix, risk_free, "max_sharpe", max_weight)
+                min_vol_w = optimize_portfolio(mean_returns, cov_matrix, risk_free, "min_vol", max_weight)
                 equal_w = np.array([1 / len(returns_df.columns)] * len(returns_df.columns))
 
                 ms_ret, ms_vol = portfolio_performance(max_sharpe_w, mean_returns, cov_matrix)
