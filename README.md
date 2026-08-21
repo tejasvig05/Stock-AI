@@ -28,7 +28,7 @@ The application simplifies financial research by centralizing complex market dat
 
 <p align="center">
   <!-- TIP: Record a 5-second GIF of your Streamlit app running and drop the image file path here! -->
-  <img src="pic/Stock AI _ Dashboard · Streamlit - Google Chrome 2026-08-21 11-11-40.gif" alt="StockAI App Preview" width="80%">
+  <img src="pic/Stock AI _ Dashboard · Streamlit - Google Chrome 2026-08-21 11-11-40.gif" alt="StockAI App Preview" width="50%">
 </p>
 
 ---
@@ -81,12 +81,12 @@ Historical financial data is cleaned and engineered into technical features. The
 =======
   <img src="python.png" width="30" height="30" alt="Python">
 >>>>>>> b224e0cd8888378d383bfd2e53ccef28f92f56a2
-  <img src="https://shields.io" alt="Streamlit">
-  <img src="https://shields.io" alt="Scikit-Learn">
-  <img src="https://shields.io" alt="TensorFlow">
-  <img src="https://shields.io" alt="Pandas">
-  <img src="https://shields.io" alt="NumPy">
-  <img src="https://shields.io" alt="Plotly">
+  <img src="pic/images.png" alt="Streamlit">
+  <img src="pic/images.jpg" alt="Scikit-Learn">
+  <img src="pic/images (1).png" alt="TensorFlow">
+  <img  alt="Pandas">
+  <img src="pic/images (2).png" alt="NumPy">
+  <img src="pic/images (3).png" alt="Plotly">
 </p>
 
 *   **Modeling & Core:** Scikit-learn, TensorFlow (LSTM), Prophet, NumPy, Pandas
