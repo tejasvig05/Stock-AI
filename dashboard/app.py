@@ -155,9 +155,77 @@ button[data-baseweb="tab"] {
 
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
+
+/* ---- Hover polish ---- */
+.metric-card, .signal-card {
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.metric-card:hover {
+    border-color: rgba(255,255,255,0.18);
+}
+
+/* ---- Footer ---- */
+.app-footer {
+    color: #5b6377;
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 24px 0 8px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 32px;
+}
+.app-footer a { color: #7dd3fc; text-decoration: none; }
+
+/* ---- Mobile responsiveness ---- */
+@media (max-width: 768px) {
+    .hero-title { font-size: 1.5rem; }
+    .hero-sub { font-size: 0.82rem; margin-bottom: 1rem; }
+    .metric-value { font-size: 1.15rem; }
+    .metric-card { padding: 12px 14px; }
+    .signal-card { padding: 16px 18px; }
+    .section-header { font-size: 0.95rem; }
+    .badge { font-size: 0.85rem; padding: 5px 12px; }
+    .mobile-hint { display: block !important; }
+}
+.mobile-hint {
+    display: none;
+    background: rgba(56,189,248,0.08);
+    border: 1px solid rgba(56,189,248,0.25);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    color: #7dd3fc;
+    margin-bottom: 14px;
+}
 </style>
 """
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+
+# Only visible on narrow (mobile) viewports via CSS media query above --
+# points users to the sidebar toggle, since Streamlit collapses it by
+# default on mobile and the stock selector lives there
+st.markdown(
+    '<div class="mobile-hint">👆 Tap the arrow (top-left) to open the stock selector</div>',
+    unsafe_allow_html=True,
+)
+
+
+def format_inr_compact(value):
+    """Formats large rupee values in Indian convention (Crore/Lakh) instead
+    of raw digits -- e.g. 1723000000000 -> '17.2L Cr'. Much more readable
+    and matches how Indian financial sites actually display market cap."""
+    if value is None or pd.isna(value):
+        return "N/A"
+    value = float(value)
+    crore = 1_00_00_000
+    lakh = 1_00_000
+    if value >= 100 * crore:
+        return f"₹{value / crore:,.0f} Cr"
+    elif value >= crore:
+        return f"₹{value / crore:,.1f} Cr"
+    elif value >= lakh:
+        return f"₹{value / lakh:,.1f} L"
+    else:
+        return f"₹{value:,.0f}"
 
 
 def classify_market_cap(market_cap):
@@ -742,9 +810,22 @@ with tab_data:
         "Metric": ["Sector", "Industry", "Market Cap", "P/E Ratio", "Cap Category"],
         "Value": [
             info.get("sector", "N/A"), info.get("industry", "N/A"),
-            f"₹{info.get('marketCap', 0):,}" if info.get("marketCap") else "N/A",
+            format_inr_compact(info.get("marketCap")),
             f"{info.get('trailingPE', 0):.2f}" if info.get("trailingPE") else "N/A",
             cap_category,
         ]
     })
     st.table(fund_df)
+
+# ============================================================
+# FOOTER
+# ============================================================
+st.markdown(
+    """<div class="app-footer">
+    Built by Tejasvi Gupta &nbsp;•&nbsp;
+    <a href="https://github.com/tejasvig05/Stock-AI" target="_blank">GitHub</a> &nbsp;•&nbsp;
+    Educational project, not financial advice &nbsp;•&nbsp;
+    Data via yfinance, refreshed daily
+    </div>""",
+    unsafe_allow_html=True,
+)
