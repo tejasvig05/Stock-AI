@@ -282,6 +282,30 @@ def get_shap_breakdown(explainer, model, latest_scaled, predicted_class, feature
     return df.sort_values("abs_value", ascending=False)
 
 
+def get_full_signal_for_symbol(symbol, model, scaler, reg_model, reg_scaler, long_term_scores_df):
+    """Bundles everything the portfolio tab needs for one holding: current
+    price, short-term signal, expected return, and long-term score. Reuses
+    the same cached functions as the main dashboard view."""
+    try:
+        f_df, s_info = load_stock_data(symbol)
+        s_pred, s_proba = get_recommendation(f_df, model, scaler)
+        s_exp_ret = get_expected_return(f_df, reg_model, reg_scaler)
+        s_lt = get_long_term_score(long_term_scores_df, symbol)
+        return {
+            "current_price": s_info.get("currentPrice"),
+            "signal": s_pred,
+            "confidence": s_proba[s_pred] if s_pred else None,
+            "expected_return": s_exp_ret,
+            "lt_score": s_lt["total_score"] if s_lt is not None else None,
+            "lt_recommendation": s_lt["recommendation"] if s_lt is not None else None,
+        }
+    except Exception:
+        return {
+            "current_price": None, "signal": None, "confidence": None,
+            "expected_return": None, "lt_score": None, "lt_recommendation": None,
+        }
+
+
 def badge_html(text, css_class):
     return f'<span class="badge {css_class}">{text}</span>'
 
@@ -389,8 +413,8 @@ expected_return = get_expected_return(featured_df, reg_model, reg_scaler)
 long_term_scores = load_long_term_scores()
 lt_row = get_long_term_score(long_term_scores, selected_symbol)
 
-tab_overview, tab_charts, tab_longterm, tab_data = st.tabs(
-    ["🎯 Signals", "📊 Charts & Indicators", "💰 Long-Term Score", "📋 Raw Data"]
+tab_overview, tab_charts, tab_longterm, tab_portfolio, tab_data = st.tabs(
+    ["🎯 Signals", "📊 Charts & Indicators", "💰 Long-Term Score", "💼 Portfolio", "📋 Raw Data"]
 )
 
 # ============================================================
@@ -520,6 +544,110 @@ with tab_longterm:
         )
     else:
         st.info("Run `python src/long_term_scorer.py` to generate the leaderboard.")
+
+# ============================================================
+# TAB: PORTFOLIO
+# ============================================================
+with tab_portfolio:
+    if "portfolio" not in st.session_state:
+        st.session_state.portfolio = []
+
+    st.markdown('<div class="section-header">💼 Your Portfolio</div>', unsafe_allow_html=True)
+    st.caption(
+        "Holdings are stored for this browser session only -- nothing is saved to a "
+        "server or shared with other visitors. Refreshing the page clears this."
+    )
+
+    with st.form("add_holding_form", clear_on_submit=True):
+        f1, f2, f3, f4 = st.columns([2, 1, 1, 1])
+        with f1:
+            new_symbol = st.selectbox("Stock", WATCHLIST, key="new_holding_symbol")
+        with f2:
+            new_qty = st.number_input("Quantity", min_value=1, value=1, step=1)
+        with f3:
+            new_buy_price = st.number_input("Buy Price (₹)", min_value=0.01, value=100.0, step=1.0)
+        with f4:
+            st.markdown("<div style='height:28px'></div>", unsafe_allow_html=True)
+            submitted = st.form_submit_button("➕ Add Holding")
+
+        if submitted:
+            st.session_state.portfolio.append({
+                "symbol": new_symbol, "quantity": new_qty, "buy_price": new_buy_price,
+            })
+            st.rerun()
+
+    if not st.session_state.portfolio:
+        st.info("No holdings added yet. Use the form above to add your first position.")
+    else:
+        rows = []
+        total_invested = 0.0
+        total_current = 0.0
+
+        with st.spinner("Fetching live prices and signals for your holdings..."):
+            for i, holding in enumerate(st.session_state.portfolio):
+                sig = get_full_signal_for_symbol(
+                    holding["symbol"], model, scaler, reg_model, reg_scaler, long_term_scores
+                )
+                invested = holding["quantity"] * holding["buy_price"]
+                current_price = sig["current_price"]
+                current_value = holding["quantity"] * current_price if current_price else None
+                pnl = (current_value - invested) if current_value is not None else None
+                pnl_pct = (pnl / invested * 100) if pnl is not None and invested > 0 else None
+
+                total_invested += invested
+                if current_value is not None:
+                    total_current += current_value
+
+                rows.append({
+                    "idx": i,
+                    "Symbol": holding["symbol"],
+                    "Qty": holding["quantity"],
+                    "Buy Price": f"₹{holding['buy_price']:.2f}",
+                    "Current Price": f"₹{current_price:.2f}" if current_price else "N/A",
+                    "Invested": f"₹{invested:,.0f}",
+                    "Current Value": f"₹{current_value:,.0f}" if current_value else "N/A",
+                    "P&L": f"₹{pnl:+,.0f}" if pnl is not None else "N/A",
+                    "P&L %": f"{pnl_pct:+.2f}%" if pnl_pct is not None else "N/A",
+                    "Short-Term Signal": sig["signal"] or "N/A",
+                    "Long-Term Score": f"{sig['lt_score']:.0f}/100" if sig["lt_score"] is not None else "N/A",
+                })
+
+        # --- Summary metrics ---
+        total_pnl = total_current - total_invested
+        total_pnl_pct = (total_pnl / total_invested * 100) if total_invested > 0 else 0
+
+        s1, s2, s3 = st.columns(3)
+        with s1:
+            st.markdown(metric_card("Total Invested", f"₹{total_invested:,.0f}"), unsafe_allow_html=True)
+        with s2:
+            st.markdown(metric_card("Current Value", f"₹{total_current:,.0f}"), unsafe_allow_html=True)
+        with s3:
+            pnl_color = "#4ade80" if total_pnl >= 0 else "#f87171"
+            st.markdown(
+                f'<div class="metric-card"><div class="metric-label">Total P&L</div>'
+                f'<div class="metric-value" style="color:{pnl_color}">'
+                f'₹{total_pnl:+,.0f} ({total_pnl_pct:+.2f}%)</div></div>',
+                unsafe_allow_html=True,
+            )
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        portfolio_df = pd.DataFrame(rows).drop(columns=["idx"])
+        st.dataframe(portfolio_df, use_container_width=True)
+
+        st.markdown("**Remove a holding:**")
+        remove_cols = st.columns(min(len(rows), 6))
+        for i, holding in enumerate(st.session_state.portfolio):
+            with remove_cols[i % len(remove_cols)]:
+                if st.button(f"❌ {holding['symbol']}", key=f"remove_{i}"):
+                    st.session_state.portfolio.pop(i)
+                    st.rerun()
+
+        st.caption(
+            "Signals shown are the same short-term (5-day) and long-term (fundamentals) "
+            "model outputs used elsewhere in this dashboard -- see the Signals tab for "
+            "each stock's full detail and explainability."
+        )
 
 # ============================================================
 # TAB: RAW DATA
