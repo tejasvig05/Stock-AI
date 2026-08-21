@@ -76,7 +76,11 @@ Historical financial data is cleaned and engineered into technical features. The
 ## 🛠️ Tech Stack
 
 <p align="left">
+<<<<<<< HEAD
   <img src=""python.png"" alt="Python">
+=======
+  <img src="python.png" width="30" height="30" alt="Python">
+>>>>>>> b224e0cd8888378d383bfd2e53ccef28f92f56a2
   <img src="https://shields.io" alt="Streamlit">
   <img src="https://shields.io" alt="Scikit-Learn">
   <img src="https://shields.io" alt="TensorFlow">
