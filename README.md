@@ -28,7 +28,7 @@ The application simplifies financial research by centralizing complex market dat
 
 <p align="center">
   <!-- TIP: Record a 5-second GIF of your Streamlit app running and drop the image file path here! -->
-  <img src="https://giphy.com" alt="StockAI App Preview" width="80%">
+  <img src="pic/Stock AI _ Dashboard · Streamlit - Google Chrome 2026-08-21 11-11-40.gif" alt="StockAI App Preview" width="80%">
 </p>
 
 ---
