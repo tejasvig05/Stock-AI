@@ -76,17 +76,14 @@ Historical financial data is cleaned and engineered into technical features. The
 ## 🛠️ Tech Stack
 
 <p align="left">
-<<<<<<< HEAD
-  <img src=""python.png"" alt="Python">
-=======
   <img src="python.png" width="30" height="30" alt="Python">
->>>>>>> b224e0cd8888378d383bfd2e53ccef28f92f56a2
-  <img src="pic/images.png" alt="Streamlit">
-  <img src="pic/images.jpg" alt="Scikit-Learn">
-  <img src="pic/images (1).png" alt="TensorFlow">
+
+  <img src="pic/images.png" width="30" height="30" alt="Streamlit">
+  <img src="pic/images.jpg" width="30" height="30" alt="Scikit-Learn">
+  <img src="pic/images (1).png" width="30" height="30" alt="TensorFlow">
   <img  alt="Pandas">
-  <img src="pic/images (2).png" alt="NumPy">
-  <img src="pic/images (3).png" alt="Plotly">
+  <img src="pic/images (2).png" width="30" height="30" alt="NumPy">
+  <img src="pic/images (3).png" width="30" height="30" alt="Plotly">
 </p>
 
 *   **Modeling & Core:** Scikit-learn, TensorFlow (LSTM), Prophet, NumPy, Pandas
