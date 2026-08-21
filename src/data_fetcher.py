@@ -88,6 +88,31 @@ def get_stock_info(symbol: str) -> dict:
         "trailingPE": info.get("trailingPE"),
     }
 
+def get_live_price(symbol: str):
+    """
+    Fetch the latest available market price for a stock.
+    """
+
+    try:
+        ticker = yf.Ticker(symbol)
+
+        # fast_info is faster and more suitable for latest price
+        price = ticker.fast_info.get("last_price")
+
+        if price is not None:
+            return float(price)
+
+        # Fallback if fast_info fails
+        df = ticker.history(period="1d", interval="1m")
+
+        if not df.empty:
+            return float(df["Close"].iloc[-1])
+
+        return None
+
+    except Exception as e:
+        print(f"Could not fetch live price for {symbol}: {e}")
+        return None
 
 if __name__ == "__main__":
     # Quick validation run -- start with ONE stock to confirm the pipeline works

@@ -19,9 +19,12 @@ from scipy.optimize import minimize
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from data_fetcher import fetch_stock_data, get_stock_info
+from data_fetcher import fetch_stock_data, get_stock_info, get_live_price
 from feature_engineering import add_technical_indicators
 
+@st.cache_data(ttl=60)
+def get_cached_live_price(symbol):
+    return get_live_price(symbol)
 
 st.set_page_config(
     page_title="Stock AI | Dashboard",
@@ -433,27 +436,62 @@ def compute_efficient_frontier(mean_returns, cov_matrix, n_points=40):
     return target_returns, np.array(frontier_vols)
 
 
-def get_full_signal_for_symbol(symbol, model, scaler, reg_model, reg_scaler, long_term_scores_df):
-    """Bundles everything the portfolio tab needs for one holding: current
-    price, short-term signal, expected return, and long-term score. Reuses
-    the same cached functions as the main dashboard view."""
+def get_full_signal_for_symbol(
+    symbol,
+    model,
+    scaler,
+    reg_model,
+    reg_scaler,
+    long_term_scores_df
+):
     try:
         f_df, s_info = load_stock_data(symbol)
-        s_pred, s_proba = get_recommendation(f_df, model, scaler)
-        s_exp_ret = get_expected_return(f_df, reg_model, reg_scaler)
-        s_lt = get_long_term_score(long_term_scores_df, symbol)
+
+        s_pred, s_proba = get_recommendation(
+            f_df,
+            model,
+            scaler
+        )
+
+        s_exp_ret = get_expected_return(
+            f_df,
+            reg_model,
+            reg_scaler
+        )
+
+        s_lt = get_long_term_score(
+            long_term_scores_df,
+            symbol
+        )
+
+        # Fetch fresh market price
+        live_price = get_cached_live_price(symbol)
+
         return {
-            "current_price": s_info.get("currentPrice"),
+            "current_price": live_price,
             "signal": s_pred,
             "confidence": s_proba[s_pred] if s_pred else None,
             "expected_return": s_exp_ret,
-            "lt_score": s_lt["total_score"] if s_lt is not None else None,
-            "lt_recommendation": s_lt["recommendation"] if s_lt is not None else None,
+            "lt_score": (
+                s_lt["total_score"]
+                if s_lt is not None
+                else None
+            ),
+            "lt_recommendation": (
+                s_lt["recommendation"]
+                if s_lt is not None
+                else None
+            ),
         }
+
     except Exception:
         return {
-            "current_price": None, "signal": None, "confidence": None,
-            "expected_return": None, "lt_score": None, "lt_recommendation": None,
+            "current_price": None,
+            "signal": None,
+            "confidence": None,
+            "expected_return": None,
+            "lt_score": None,
+            "lt_recommendation": None,
         }
 
 
@@ -535,6 +573,7 @@ with st.sidebar:
 # ============================================================
 with st.spinner(f"Loading {selected_symbol}..."):
     featured_df, info = load_stock_data(selected_symbol)
+    live_price = get_cached_live_price(selected_symbol)
     model, scaler, reg_model, reg_scaler = load_model()
 
 cap_category = classify_market_cap(info.get("marketCap"))
@@ -548,7 +587,12 @@ st.markdown(
 
 m1, m2, m3, m4 = st.columns(4)
 with m1:
-    st.markdown(metric_card("Current Price", f"₹{info.get('currentPrice', 'N/A')}"), unsafe_allow_html=True)
+    price_display = f"₹{live_price:.2f}" if live_price is not None else "N/A"
+
+    st.markdown(
+        metric_card("Current Price", price_display),
+        unsafe_allow_html=True
+    )
 with m2:
     st.markdown(metric_card("Market Cap", cap_category), unsafe_allow_html=True)
 with m3:
