@@ -18,6 +18,7 @@ import shap
 from scipy.optimize import minimize
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from streamlit_autorefresh import st_autorefresh
 
 from data_fetcher import (
     fetch_stock_data,
@@ -37,6 +38,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+st_autorefresh(interval=60 * 1000, key="stock_price_refresh")
 
 FEATURE_COLUMNS = [
     "SMA_20", "SMA_50", "EMA_20", "RSI_14",
