@@ -19,7 +19,12 @@ from scipy.optimize import minimize
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from data_fetcher import fetch_stock_data, get_stock_info, get_live_price
+from data_fetcher import (
+    fetch_stock_data,
+    get_stock_info,
+)
+
+from data_fetcher import get_live_price
 from feature_engineering import add_technical_indicators
 
 @st.cache_data(ttl=60)
